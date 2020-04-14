@@ -1,6 +1,6 @@
-# my_care
+# My Care app
 
-A new Flutter project.
+A new Flutter project. Work in progress...
 
 ## Getting Started
 
