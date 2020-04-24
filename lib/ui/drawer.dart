@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_care/style/style.dart';
+import '../style/style.dart';
 import './drawer_list_elem.dart';
 import './drawer_list_separator.dart';
 

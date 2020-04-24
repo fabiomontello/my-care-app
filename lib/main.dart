@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primaryColor: theme.mainColor,
         accentColor: theme.mainColorDark
       ),
-      initialRoute: login ? '/': '/login',
+      initialRoute: login ? '/home': '/login',
       routes: {
         '/home': (context) => MyHomePage(title: 'My Care'),
         '/login': (context) =>LoginPage() ,
