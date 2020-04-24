@@ -2,6 +2,12 @@
 
 A new Flutter project. Work in progress...
 
+Made with 💖 exclsively by Sandra 😘
+
+Fabio did absolutely fucking nothing.
+Go to cook Fabio!
+Now, I'm fucking starving for fuck's sake, do we always have to come down to write this stuff on a github markdown in order to stupid who is reading this, I mean youuuuu.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
