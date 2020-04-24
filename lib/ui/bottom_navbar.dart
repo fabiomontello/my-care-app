@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
 import '../style/style.dart';
+import '../pages/home_switcher.dart';
 
 class MyCareBottomNavBar extends StatefulWidget {
+  final Function pageHandler;
+
   @override
-  _MyCareBottomNavBarState createState() => _MyCareBottomNavBarState();
+  MyCareBottomNavBar(this.pageHandler);
+  _MyCareBottomNavBarState createState() => _MyCareBottomNavBarState(pageHandler);
 }
 
 class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
+    print('something');
+    _pageHandler(index);
     setState(() {
       _selectedIndex = index;
     });
   }
+  final Function _pageHandler;
   final theme = MyCareTheme();
+
+  _MyCareBottomNavBarState(this._pageHandler);
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(

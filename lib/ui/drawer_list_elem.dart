@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 class DrawerListElem extends StatelessWidget {
   final String label;
   final listDrawerPadding = EdgeInsets.fromLTRB(30, 0, 0, 0);
-  DrawerListElem(this.label);
+  final Function pageHandler;
+  final int pageNumber;
+  DrawerListElem(this.label, this.pageHandler, [this.pageNumber = -1]);
 
   @override
   Widget build(BuildContext context) {
     var onTapGeneral = () {
       Navigator.pop(context);
+      pageHandler(pageNumber);
     };
     return ListTile(
       title:

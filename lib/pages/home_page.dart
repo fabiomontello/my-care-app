@@ -2,12 +2,26 @@ import 'package:flutter/material.dart';
 import '../ui/drawer.dart';
 import '../ui/bottom_navbar.dart';
 import '../style/style.dart';
+import './home_switcher.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-  final theme = MyCareTheme();
   final String title;
 
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final theme = MyCareTheme();
+  int _index = 0;
+  void _pageHandler(int pageNum){
+    if(pageNum != -1){
+      setState((){
+        _index = pageNum;
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,18 +32,9 @@ class MyHomePage extends StatelessWidget {
           ),
         iconTheme: new IconThemeData(color: Colors.white),
       ),
-      drawer: MyCareDrawer(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'We are taking "Care" of it 😉',
-            ),
-          ],
-        ),
-      ),
-    bottomNavigationBar: MyCareBottomNavBar(),
+      drawer: MyCareDrawer(_pageHandler),
+      body: HomeSwitcher(_index),
+    bottomNavigationBar: MyCareBottomNavBar(_pageHandler),
     );
   }
 }

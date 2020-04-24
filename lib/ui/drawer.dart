@@ -5,7 +5,10 @@ import './drawer_list_separator.dart';
 
 class MyCareDrawer extends StatelessWidget{
   
+  final Function pageHandler;
 
+  MyCareDrawer(this.pageHandler);
+  
   @override
   Widget build(BuildContext context) {
     final theme = MyCareTheme();
@@ -28,17 +31,17 @@ class MyCareDrawer extends StatelessWidget{
                 ),
               ),
               DrawerListSeparator(),
-              DrawerListElem('Impostazioni'),
+              DrawerListElem('Impostazioni', pageHandler),
               DrawerListSeparator(),
-              DrawerListElem('Medicinali'),
-              DrawerListElem('Appuntamenti'),
-              DrawerListElem('Documenti'),
-              DrawerListElem('Analisi'),
+              DrawerListElem('Medicinali', pageHandler, 5),
+              DrawerListElem('Appuntamenti', pageHandler, 6),
+              DrawerListElem('Documenti', pageHandler, 7),
+              DrawerListElem('Analisi', pageHandler, 8),
               DrawerListSeparator(),
-              DrawerListElem('Connetti B'),
+              DrawerListElem('Connetti B', pageHandler,),
               DrawerListSeparator(),
-              DrawerListElem('Assistenza'),
-              DrawerListElem('Valutaci'),
+              DrawerListElem('Assistenza', pageHandler,),
+              DrawerListElem('Valutaci', pageHandler,),
             ],
           ),
       ),
