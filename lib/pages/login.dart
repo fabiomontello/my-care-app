@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import '../logos/logos.dart';
 
-
 class LoginPage extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,16 +57,14 @@ class LoginPage extends StatelessWidget {
           "Salta",
           textAlign: TextAlign.right,
           style: TextStyle(
-              color: Colors.red,
-              fontSize: 20,
-              fontWeight: FontWeight.w300),
+              color: Colors.red, fontSize: 20, fontWeight: FontWeight.w300),
         ),
       ),
     );
-    // void main() { 
-    //   var isLoggedIn = false; 
-    //   var userName = 'Sandrula'; 
-    //   var password = 'tester';  
+    // void main() {
+    //   var isLoggedIn = false;
+    //   var userName = 'Sandrula';
+    //   var password = 'tester';
     //   var hasCorrectCredentials = userName == 'Sandrula' $$ password == tester;
     //   if (hasCorrectCredentials) { (Navigator.pushNamed(context, '/home'),);
     //   }
@@ -76,10 +72,10 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-// void main() { 
-//       var isLoggedIn = false; 
-//       var userName = 'Sandrula'; 
-//       var password = 'tester';  
+// void main() {
+//       var isLoggedIn = false;
+//       var userName = 'Sandrula';
+//       var password = 'tester';
 //       var hasCorrectCredentials = userName == 'Sandrula' $$ pasword == tester;
 //       if (hasCorrectCredentials) { go to main;
 //       }

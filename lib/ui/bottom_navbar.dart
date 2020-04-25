@@ -5,7 +5,8 @@ class MyCareBottomNavBar extends StatefulWidget {
 
   @override
   MyCareBottomNavBar(this.pageHandler);
-  _MyCareBottomNavBarState createState() => _MyCareBottomNavBarState(pageHandler);
+  _MyCareBottomNavBarState createState() =>
+      _MyCareBottomNavBarState(pageHandler);
 }
 
 class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
@@ -17,6 +18,7 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
       _selectedIndex = index;
     });
   }
+
   final Function _pageHandler;
 
   _MyCareBottomNavBarState(this._pageHandler);
@@ -24,7 +26,7 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Theme.of(context).primaryColor, 
+      backgroundColor: Theme.of(context).primaryColor,
       showUnselectedLabels: false,
       showSelectedLabels: false,
       items: const <BottomNavigationBarItem>[
@@ -37,7 +39,9 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
           title: Text('Smart Devices'),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.add_circle,),
+          icon: Icon(
+            Icons.add_circle,
+          ),
           title: Text('add'),
         ),
         BottomNavigationBarItem(
