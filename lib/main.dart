@@ -68,32 +68,3 @@ class CustomColorSwatchs {
     return MaterialColor(0xff55BDBB, colorSwatch);
   }
 }
-
-
-// Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter App',
-//       theme: ThemeData(
-//           primarySwatch: Colors.purple,
-//           accentColor: Colors.amber[400],
-//           textTheme: ThemeData.light().textTheme.copyWith(
-//                 title: TextStyle(
-//                   fontFamily: 'OpenSans',
-//                   fontWeight: FontWeight.bold,
-//                   fontSize: 18,
-//                 ),
-//               ),
-//           fontFamily: 'Quicksand',
-//           appBarTheme: AppBarTheme(
-//             textTheme: ThemeData.light().textTheme.copyWith(
-//                   title: TextStyle(
-//                     fontFamily: 'OpenSans',
-//                     fontSize: 20,
-//                     fontWeight: FontWeight.bold,
-//                   ),
-//                 ),
-//           )),
-//       home: MyHomePage(),
-//     );
-//   }
-// }

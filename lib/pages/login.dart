@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../style/style.dart';
+import '../logos/logos.dart';
 
 class LoginPage extends StatelessWidget {
+  
   //final theme = MyCareTheme();
   @override
   Widget build(BuildContext context) {
@@ -66,3 +67,12 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+
+// void main() { 
+//       var isLoggedIn = false; 
+//       var userName = 'Sandrula'; 
+//       var password = 'tester';  
+//       var hasCorrectCredentials = userName == 'Sandrula' $$ pasword == tester;
+//       if (hasCorrectCredentials) { go to main;
+//       }
+//       else ()

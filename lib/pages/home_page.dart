@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../ui/drawer.dart';
 import '../ui/bottom_navbar.dart';
-import '../style/style.dart';
+import '../logos/logos.dart';
 import './home_switcher.dart';
 
 class MyHomePage extends StatefulWidget {
