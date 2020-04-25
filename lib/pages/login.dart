@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
               child: Text(
                 "Registrati",
                 style: TextStyle(
-                    color: Colors.red,
+                    color: Color(0xffBE1622),
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),

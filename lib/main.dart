@@ -14,9 +14,10 @@ class MyApp extends StatelessWidget {
   //static const myColour = const MaterialColor (0xff55BDBB);
   //  static const MaterialColor  = const MaterialColor(myColour,
   //   const <int, Color>{});
-   static const MaterialColor red = const MaterialColor(accentRed,
-   const <int, Color>{});
+  // static const MaterialColor red = const MaterialColor(accentRed,
+   //const <int, Color>{});
   //final theme = MyCareTheme();
+  static const color = const Color(0xffBE1622); 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -59,16 +60,8 @@ class CustomColorSwatchs {
 //   final double spendingAmount;
 //   final double spendingPctOfTotal;
 
-//   ChartBar(this.label, this.spendingAmount, this.spendingPctOfTotal);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: <Widget>[
-//         FittedBox(
-//           child: Text('\$${spendingAmount.toStringAsFixed(0)}')),
-//         SizedBox(
-//           height: 4,
+//   ChartBar
+//fitted box
 //         ),
 //         Container(
 //           height: 60,
