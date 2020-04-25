@@ -18,7 +18,6 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
     });
   }
   final Function _pageHandler;
-  //final theme = MyCareTheme();
 
   _MyCareBottomNavBarState(this._pageHandler);
   @override
