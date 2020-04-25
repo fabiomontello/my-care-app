@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   final bool login = false;
   
   //static const myColour = 0xff55BDBB;
-  static const accentRed = 0xffBE1622;
+  //static const accentRed = 0xffBE1622;
   //this.primary = const Color(0xff55BDBB),
   //static const myColour = const MaterialColor (0xff55BDBB);
   //  static const MaterialColor  = const MaterialColor(myColour,
@@ -25,8 +25,22 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: CustomColorSwatchs.appPrimaryColor,
         accentColor: Color(0xff1A938D),
-        //primarySwatch: MaterialColor myColor = MaterialColor(0xFF880E4F, color),
-        //accentColor: theme.mainColorDark
+        textTheme: ThemeData.light().textTheme.copyWith(
+                headline6: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+              ),
+          appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light().textTheme.copyWith(
+                  headline6: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+      ),
       ),
       initialRoute: login ? '/home': '/login',
       routes: {
@@ -54,47 +68,6 @@ class CustomColorSwatchs {
     return MaterialColor(0xff55BDBB, colorSwatch);
   }
 }
-
-// class ChartBar extends StatelessWidget {
-//   final String label;
-//   final double spendingAmount;
-//   final double spendingPctOfTotal;
-
-//   ChartBar
-//fitted box
-//         ),
-//         Container(
-//           height: 60,
-//           width: 10,
-//           child: Stack(
-//             children: <Widget>[
-//               Container(
-//                 decoration: BoxDecoration(
-//                   border: Border.all(color: Colors.grey, width: 1.0),
-//                   color: Color.fromRGBO(220, 220, 220, 1),
-//                   borderRadius: BorderRadius.circular(10),
-//                 ),
-//               ),
-//               FractionallySizedBox(
-//                 heightFactor: spendingPctOfTotal,
-//                 child: Container(
-//                   decoration: BoxDecoration(
-//                     color: Theme.of(context).primaryColor,
-//                     borderRadius: BorderRadius.circular(10),
-//                   ),
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//         SizedBox(
-//           height: 4,
-//         ),
-//         Text(label),
-//       ],
-//     );
-//   }
-// }
 
 
 // Widget build(BuildContext context) {
