@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../style/style.dart';
 import './drawer_list_elem.dart';
 import './drawer_list_separator.dart';
 
@@ -11,11 +10,11 @@ class MyCareDrawer extends StatelessWidget{
   
   @override
   Widget build(BuildContext context) {
-    final theme = MyCareTheme();
+    //final theme = MyCareTheme();
     
     return Drawer(
       child: Container(
-        color: theme.mainColor,
+        color: Theme.of(context).primaryColor,
         child:
           ListView(
             padding: EdgeInsets.zero,

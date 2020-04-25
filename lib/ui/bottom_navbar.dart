@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../style/style.dart';
-import '../pages/home_switcher.dart';
 
 class MyCareBottomNavBar extends StatefulWidget {
   final Function pageHandler;
@@ -20,14 +18,14 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
     });
   }
   final Function _pageHandler;
-  final theme = MyCareTheme();
+  //final theme = MyCareTheme();
 
   _MyCareBottomNavBarState(this._pageHandler);
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      backgroundColor: theme.mainColor,
+      backgroundColor: Theme.of(context).primaryColor,
       showUnselectedLabels: false,
       showSelectedLabels: false,
       items: const <BottomNavigationBarItem>[

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../style/style.dart';
 
 class LoginPage extends StatelessWidget {
-  final theme = MyCareTheme();
+  //final theme = MyCareTheme();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +42,7 @@ class LoginPage extends StatelessWidget {
               child: Text(
                 "Registrati",
                 style: TextStyle(
-                    color: theme.accentRed,
+                    color: Colors.red,
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
@@ -58,7 +58,7 @@ class LoginPage extends StatelessWidget {
           "Salta",
           textAlign: TextAlign.right,
           style: TextStyle(
-              color: theme.accentRed,
+              color: Colors.red,
               fontSize: 20,
               fontWeight: FontWeight.w300),
         ),
