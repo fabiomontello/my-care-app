@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../logos/logos.dart';
 
+
 class LoginPage extends StatelessWidget {
   
-  //final theme = MyCareTheme();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,6 +65,14 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+    // void main() { 
+    //   var isLoggedIn = false; 
+    //   var userName = 'Sandrula'; 
+    //   var password = 'tester';  
+    //   var hasCorrectCredentials = userName == 'Sandrula' $$ password == tester;
+    //   if (hasCorrectCredentials) { (Navigator.pushNamed(context, '/home'),);
+    //   }
+    //   else ()
   }
 }
 
