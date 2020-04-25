@@ -25,7 +25,7 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).primaryColor, 
       showUnselectedLabels: false,
       showSelectedLabels: false,
       items: const <BottomNavigationBarItem>[

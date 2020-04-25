@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
   static const accentRed = 0xffBE1622;
   //this.primary = const Color(0xff55BDBB),
   //static const myColour = const MaterialColor (0xff55BDBB);
-  //  static const MaterialColor lime = const MaterialColor(myColour,
+  //  static const MaterialColor  = const MaterialColor(myColour,
   //   const <int, Color>{});
-   static const MaterialColor red = const MaterialColor(accentRed, 
+   static const MaterialColor red = const MaterialColor(accentRed,
    const <int, Color>{});
   //final theme = MyCareTheme();
   @override
