@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:my_care/ui/plus.dart';
+import '../ui/plus.dart';
 
 class HomeSwitcher extends StatelessWidget {
   final int index;
-  HomeSwitcher(this.index);
+    final Function pressHandler;
+
+  HomeSwitcher(this.index, this.pressHandler);
   @override
     Widget build(BuildContext context) {
       Widget child;
       switch (index) {
         case 0:
-          child = FlutterLogo();
+          child = IconButton(
+          onPressed: () => pressHandler(context),
+          icon: Icon(
+            Icons.add_circle,
+          ),
+        );
           break;
         case 1:
           child = FlutterLogo(colors: Colors.orange);
           break;
         case 2:
-          child = FlutterLogo(colors: Colors.red);
+          child = PlusButton();
           break;
         default:
           child = FlutterLogo(colors: Colors.deepPurple,);

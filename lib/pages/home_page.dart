@@ -3,6 +3,8 @@ import '../ui/drawer.dart';
 import '../ui/bottom_navbar.dart';
 import '../logos/logos.dart';
 import './home_switcher.dart';
+import '../ui/plus.dart';
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -22,6 +24,18 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     }
   }
+  void startAddButton(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: PlusButton(),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
         iconTheme: new IconThemeData(color: Colors.white),
       ),
       drawer: MyCareDrawer(_pageHandler),
-      body: HomeSwitcher(_index),
-      bottomNavigationBar: MyCareBottomNavBar(_pageHandler),
+      body: HomeSwitcher(_index, startAddButton),
+      bottomNavigationBar: MyCareBottomNavBar(_pageHandler,),
     );
   }
 }

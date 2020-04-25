@@ -7,16 +7,6 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   final bool login = false;
-
-  //static const myColour = 0xff55BDBB;
-  //static const accentRed = 0xffBE1622;
-  //this.primary = const Color(0xff55BDBB),
-  //static const myColour = const MaterialColor (0xff55BDBB);
-  //  static const MaterialColor  = const MaterialColor(myColour,
-  //   const <int, Color>{});
-  // static const MaterialColor red = const MaterialColor(accentRed,
-  //const <int, Color>{});
-  //final theme = MyCareTheme();
   static const color = const Color(0xffBE1622);
   @override
   Widget build(BuildContext context) {

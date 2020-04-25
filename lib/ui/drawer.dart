@@ -9,8 +9,6 @@ class MyCareDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final theme = MyCareTheme();
-
     return Drawer(
       child: Container(
         color: Theme.of(context).primaryColor,
