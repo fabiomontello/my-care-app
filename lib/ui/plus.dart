@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class PlusButton extends StatefulWidget {
-// final Function addTx;
-
+ //final Function addTx;
   PlusButton();
-  
+
   @override
   _PlusButton createState() => _PlusButton();
 }
@@ -22,8 +21,6 @@ class _PlusButton extends State<PlusButton> {
       return;
     }
 
-  
-
     Navigator.of(context).pop();
   }
 
@@ -35,32 +32,31 @@ class _PlusButton extends State<PlusButton> {
         padding: EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            TextField(
-              cursorColor: Colors.lightGreenAccent,
-              decoration: InputDecoration(labelText: 'Title'),
-              controller: titleController,
-              onSubmitted: (_) => submitData(),
-              // onChanged: (val) {
-              // titleInput = val;
-              // },
-            ),
-            TextField(
-              cursorColor: Colors.deepPurpleAccent,
-              decoration: InputDecoration(labelText: 'Title'),
-              controller: amountController,
-              keyboardType: TextInputType.number,
-              onSubmitted: (_) => submitData(),
-              // onChanged: (val) => amountInput = val,
-            ),
-            FlatButton(
-              child: Text('Add'),
-              textColor: Colors.lightGreenAccent,
-              onPressed: () => submitData,
-            )
-          ],
+          children: <Widget>[],
         ),
       ),
     );
   }
 }
+// TextField(
+//   cursorColor: Colors.lightGreenAccent,
+//   decoration: InputDecoration(labelText: 'Title'),
+//   controller: titleController,
+//   onSubmitted: (_) => submitData(),
+//   // onChanged: (val) {
+//   // titleInput = val;
+//   // },
+// ),
+// // TextField(
+// //   cursorColor: Colors.deepPurpleAccent,
+// //   decoration: InputDecoration(labelText: 'Title'),
+// //   controller: amountController,
+// //   keyboardType: TextInputType.number,
+// //   onSubmitted: (_) => submitData(),
+//   // onChanged: (val) => amountInput = val,
+// ),
+// FlatButton(
+//   child: Text('Add'),
+//   textColor: Colors.lightGreenAccent,
+//   onPressed: () => submitData,
+// )

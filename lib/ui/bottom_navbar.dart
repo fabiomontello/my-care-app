@@ -1,11 +1,15 @@
+//import 'dart:js';
 
 import 'package:flutter/material.dart';
+import 'package:my_care/ui/plus.dart';
 
 class MyCareBottomNavBar extends StatefulWidget {
   final Function pageHandler;
 
   @override
-  MyCareBottomNavBar(this.pageHandler,);
+  MyCareBottomNavBar(
+    this.pageHandler,
+  );
   _MyCareBottomNavBarState createState() =>
       _MyCareBottomNavBarState(pageHandler);
 }
@@ -19,41 +23,55 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
     });
   }
 
+  void startAddButton(BuildContext ctx) {
+    showModalBottomSheet(
+      context: ctx,
+      builder: (_) {
+        return GestureDetector(
+          onTap: () {},
+          child: PlusButton(),
+          behavior: HitTestBehavior.opaque,
+        );
+      },
+    );
+  }
+
   final Function _pageHandler;
-
-
-
 
   _MyCareBottomNavBarState(this._pageHandler);
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: Theme.of(context).primaryColor,
-      showUnselectedLabels: false,
-      showSelectedLabels: false,
-      items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text('Home'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.watch),
-          title: Text('Smart Devices'),
-        ),
-      
-        BottomNavigationBarItem(
-          icon: Icon(Icons.notifications),
-          title: Text('notification'),
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.place),
-          title: Text('Place'),
-        ),
-      ],
-      currentIndex: _selectedIndex,
-      selectedItemColor: Colors.white,
-      onTap: _onItemTapped,
+    return Container(
+      height: 50,
+      color: Theme.of(context).primaryColor,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Expanded(
+            flex: 1,
+            child: Icon(Icons.home),
+          ),
+          Expanded(
+            flex: 1,
+            child: Icon(Icons.watch),
+          ),
+          Expanded(
+            flex: 1,
+            child: IconButton(
+              onPressed: () => startAddButton(context),
+              icon: Icon(Icons.add_circle),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Icon(Icons.notifications),
+          ),
+          Expanded(
+            flex: 1,
+            child: Icon(Icons.place),
+          ),
+        ],
+      ),
     );
   }
 }
