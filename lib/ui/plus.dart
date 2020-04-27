@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_care/ui/plus_list_elem.dart';
 import './drawer_list_separator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -29,49 +30,27 @@ class _PlusButton extends State<PlusButton> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Container(
-        padding: EdgeInsets.all(10),
-        height: 240,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            Divider(
-              color: Colors.white,
-              indent: 30,
-              endIndent: 30,
-              height: 5,
-              thickness: 2,
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 0, horizontal: 80),
-              child: ListTile(
-                title: Text('Medicinale',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline6
-                    //TextStyle (color: Colors.white, ),
-                    ),
-                trailing: FaIcon(
-                  FontAwesomeIcons.pills,
-                  color: Colors.white,
-                ),
-                //textDirection: Icons.format_align_center),
-              ),
-            ),
-            DrawerListSeparator(),
-            ListTile(
-              title: Text('Appuntamento',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6),
-            ),
-            DrawerListSeparator(),
-            ListTile(
-              title: Text('Documento',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6),
-            ),
-            DrawerListSeparator(),
-          ],
-        ),
+      padding: EdgeInsets.all(10),
+      height: 290,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          Divider(
+            color: Colors.white,
+            indent: 140,
+            endIndent: 140,
+            height: 20,
+            thickness: 6,
+          ),
+          DrawerListSeparator(),
+          PlusListElem('Medicinale', FontAwesomeIcons.pills),
+          DrawerListSeparator(),
+          PlusListElem('Appuntamento', FontAwesomeIcons.checkCircle),
+          DrawerListSeparator(),
+          PlusListElem('Documento', FontAwesomeIcons.fileVideo),
+          DrawerListSeparator(),
+          PlusListElem('Analisi', FontAwesomeIcons.fileMedicalAlt)
+        ],
       ),
     );
   }
