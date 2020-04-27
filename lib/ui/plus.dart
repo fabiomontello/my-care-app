@@ -43,14 +43,17 @@ class _PlusButton extends State<PlusButton> {
               thickness: 2,
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 0, horizontal:80),
+              margin: EdgeInsets.symmetric(vertical: 0, horizontal: 80),
               child: ListTile(
                 title: Text('Medicinale',
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.headline6
                     //TextStyle (color: Colors.white, ),
                     ),
-                trailing: FaIcon(FontAwesomeIcons.pills, color: Colors.white,),
+                trailing: FaIcon(
+                  FontAwesomeIcons.pills,
+                  color: Colors.white,
+                ),
                 //textDirection: Icons.format_align_center),
               ),
             ),
@@ -60,6 +63,13 @@ class _PlusButton extends State<PlusButton> {
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headline6),
             ),
+            DrawerListSeparator(),
+            ListTile(
+              title: Text('Documento',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline6),
+            ),
+            DrawerListSeparator(),
           ],
         ),
       ),
