@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import './drawer_list_separator.dart';
-import 'package:flutter_launcher_icons/android.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PlusButton extends StatefulWidget {
@@ -43,15 +42,17 @@ class _PlusButton extends State<PlusButton> {
               height: 5,
               thickness: 2,
             ),
-            ListTile(
-              title: Text('Medicinale',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6
-                  //TextStyle (color: Colors.white, ),
-                  // Theme.of(context).textTheme.headline6
-                  ),
-              trailing: FaIcon(FontAwesomeIcons.pills),
-              //extDirection: Icons.format_align_center),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 0, horizontal:80),
+              child: ListTile(
+                title: Text('Medicinale',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline6
+                    //TextStyle (color: Colors.white, ),
+                    ),
+                trailing: FaIcon(FontAwesomeIcons.pills, color: Colors.white,),
+                //textDirection: Icons.format_align_center),
+              ),
             ),
             DrawerListSeparator(),
             ListTile(
