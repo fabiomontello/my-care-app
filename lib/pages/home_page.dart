@@ -14,7 +14,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // final theme = MyCareTheme();
   int _index = 0;
   void _pageHandler(int pageNum) {
     if (pageNum != -1) {

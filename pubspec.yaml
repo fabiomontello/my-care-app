@@ -32,7 +32,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_launcher_icons: "^0.7.3"
+  flutter_launcher_icons: "^0.7.5"
+  font_awesome_flutter: ^8.8.1
 
 
 # For information on the generic Dart part of this file, see the
@@ -69,8 +70,8 @@ flutter:
   fonts:
     - family: Ubuntu
       fonts:
-        - asset: fonts/Ubuntu-R.ttf
-        - asset: fonts/Ubuntu-B.ttf
+        - asset: assets/fonts/Ubuntu-R.ttf
+        - asset: assets/fonts/Ubuntu-B.ttf
           weight: 700
   #   - family: Trajan Pro
   #     fonts:

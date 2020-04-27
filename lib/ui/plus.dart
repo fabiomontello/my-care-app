@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import './drawer_list_separator.dart';
+import 'package:flutter_launcher_icons/android.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PlusButton extends StatefulWidget {
   //final Function addTx;
@@ -42,14 +44,21 @@ class _PlusButton extends State<PlusButton> {
               thickness: 2,
             ),
             ListTile(
-              title: Text(
-                'Medicinali',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline6//TextStyle (color: Colors.white, ), 
-              // Theme.of(context).textTheme.headline6
-              ),
+              title: Text('Medicinale',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline6
+                  //TextStyle (color: Colors.white, ),
+                  // Theme.of(context).textTheme.headline6
+                  ),
+              trailing: FaIcon(FontAwesomeIcons.pills),
+              //extDirection: Icons.format_align_center),
             ),
-            DrawerListSeparator()
+            DrawerListSeparator(),
+            ListTile(
+              title: Text('Appuntamento',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline6),
+            ),
           ],
         ),
       ),

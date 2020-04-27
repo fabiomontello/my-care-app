@@ -19,13 +19,14 @@ class MyApp extends StatelessWidget {
               headline6: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Ubuntu',
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.normal,
                 fontSize: 18,
               ),
             ),
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
                 headline6: TextStyle(
+                  color: Colors.white,
                   fontFamily: 'Ubuntu',
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
