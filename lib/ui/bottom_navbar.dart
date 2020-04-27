@@ -24,14 +24,16 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
   }
 
   void startAddButton(BuildContext ctx) {
-    showModalBottomSheet(backgroundColor: Theme.of(context).primaryColor,
-
+    showModalBottomSheet(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      barrierColor: Colors.black.withAlpha(1),
       context: ctx,
       builder: (_) {
         return GestureDetector(
           onTap: () {},
           child: PlusButton(),
-          behavior: HitTestBehavior.opaque,
+          behavior: HitTestBehavior.translucent,
         );
       },
     );
@@ -51,13 +53,15 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
           Expanded(
             flex: 1,
             child: IconButton(
-                icon: Icon(Icons.home), onPressed: () => _onItemTapped(0),
+                icon: Icon(Icons.home),
+                onPressed: () => _onItemTapped(0),
                 color: _selectedIndex == 0 ? Colors.white : null),
           ),
           Expanded(
             flex: 1,
             child: IconButton(
-                icon: Icon(Icons.watch), onPressed: () => _onItemTapped(1),
+                icon: Icon(Icons.watch),
+                onPressed: () => _onItemTapped(1),
                 color: _selectedIndex == 1 ? Colors.white : null),
           ),
           Expanded(

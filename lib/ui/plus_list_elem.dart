@@ -9,7 +9,7 @@ class PlusListElem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 60),
+      margin: EdgeInsets.symmetric(vertical: 0, horizontal: 45),
       child: ListTile(
         title: Text(labelTitle,
             textAlign: TextAlign.center,
