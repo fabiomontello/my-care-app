@@ -24,7 +24,8 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
   }
 
   void startAddButton(BuildContext ctx) {
-    showModalBottomSheet(
+    showModalBottomSheet(backgroundColor: Theme.of(context).primaryColor,
+
       context: ctx,
       builder: (_) {
         return GestureDetector(
@@ -49,11 +50,15 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
         children: [
           Expanded(
             flex: 1,
-            child: Icon(Icons.home),
+            child: IconButton(
+                icon: Icon(Icons.home), onPressed: () => _onItemTapped(0),
+                color: _selectedIndex == 0 ? Colors.white : null),
           ),
           Expanded(
             flex: 1,
-            child: Icon(Icons.watch),
+            child: IconButton(
+                icon: Icon(Icons.watch), onPressed: () => _onItemTapped(1),
+                color: _selectedIndex == 1 ? Colors.white : null),
           ),
           Expanded(
             flex: 1,
@@ -64,11 +69,20 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
           ),
           Expanded(
             flex: 1,
-            child: Icon(Icons.notifications),
+            child: IconButton(
+                // disabledColor: Colors.black,
+                icon: Icon(Icons.notifications),
+                onPressed: () => _onItemTapped(3),
+                color: _selectedIndex == 3 ? Colors.white : null
+                // highlightColor: InkResponse(onTap: Colors.white,
+                ),
           ),
           Expanded(
             flex: 1,
-            child: Icon(Icons.place),
+            child: IconButton(
+                icon: Icon(Icons.place),
+                onPressed: () => _onItemTapped(4),
+                color: _selectedIndex == 4 ? Colors.white : null),
           ),
         ],
       ),

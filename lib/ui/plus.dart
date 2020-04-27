@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import './drawer_list_separator.dart';
 
 class PlusButton extends StatefulWidget {
- //final Function addTx;
+  //final Function addTx;
   PlusButton();
 
   @override
@@ -26,13 +27,30 @@ class _PlusButton extends State<PlusButton> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
+    return Container(
       child: Container(
         padding: EdgeInsets.all(10),
+        height: 240,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[],
+          children: <Widget>[
+            Divider(
+              color: Colors.white,
+              indent: 30,
+              endIndent: 30,
+              height: 5,
+              thickness: 2,
+            ),
+            ListTile(
+              title: Text(
+                'Medicinali',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headline6//TextStyle (color: Colors.white, ), 
+              // Theme.of(context).textTheme.headline6
+              ),
+            ),
+            DrawerListSeparator()
+          ],
         ),
       ),
     );
