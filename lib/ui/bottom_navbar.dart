@@ -5,29 +5,36 @@ import 'package:my_care/ui/plus.dart';
 
 class MyCareBottomNavBar extends StatefulWidget {
   final Function pageHandler;
+  final int selectedIndex;
 
   @override
   MyCareBottomNavBar(
     this.pageHandler,
+    this.selectedIndex
   );
   _MyCareBottomNavBarState createState() =>
-      _MyCareBottomNavBarState(pageHandler);
+      _MyCareBottomNavBarState(pageHandler, selectedIndex);
 }
 
 class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
-  int _selectedIndex = 0;
+  int _selectedIndex;
   void _onItemTapped(int index) {
     _pageHandler(index);
     setState(() {
-      _selectedIndex = index;
+      
     });
-  }
+/*     setState(() {
+      _selectedIndex = index;
+    }); */
+  } 
 
   void startAddButton(BuildContext ctx) {
+    
     showModalBottomSheet(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      barrierColor: Colors.black.withAlpha(1),
+
+      //barrierColor: null,
       context: ctx,
       builder: (_) {
         return GestureDetector(
@@ -41,7 +48,7 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
 
   final Function _pageHandler;
 
-  _MyCareBottomNavBarState(this._pageHandler);
+  _MyCareBottomNavBarState(this._pageHandler, this._selectedIndex);
   @override
   Widget build(BuildContext context) {
     return Container(
