@@ -20,9 +20,6 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
   int _selectedIndex;
   void _onItemTapped(int index) {
     _pageHandler(index);
-    setState(() {
-      
-    });
 /*     setState(() {
       _selectedIndex = index;
     }); */
