@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import './pages/documento_edit.dart';
+import './pages/appuntamento_edit.dart';
 import './pages/login.dart';
 import './pages/home_page.dart';
+import './pages/medicinale_edit.dart';
+import './pages/analisi_edit.dart';
 
 void main() => runApp(MyApp());
 
@@ -38,6 +42,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => MyHomePage(title: 'My Care'),
         '/login': (context) => LoginPage(),
+        '/appuntamento/edit': (context) => AppuntamentoEdit(),
+        '/medicinale/edit': (context) => MedicinaleEdit(),
+        '/documento/edit': (context) => DocumentoEdit(),
+        '/analisi/edit': (context) => AnalisiEdit(),
       },
     );
   }

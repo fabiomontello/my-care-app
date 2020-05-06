@@ -4,7 +4,6 @@ import './drawer_list_separator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PlusButton extends StatefulWidget {
-  //final Function addTx;
   PlusButton();
 
   @override
@@ -12,21 +11,6 @@ class PlusButton extends StatefulWidget {
 }
 
 class _PlusButton extends State<PlusButton> {
-  final titleController = TextEditingController();
-
-  final amountController = TextEditingController();
-
-  void submitData() {
-    final enteredTitle = titleController.text;
-    final enteredAmount = double.parse(amountController.text);
-
-    if (enteredTitle.isEmpty || enteredAmount <= 0) {
-      return;
-    }
-
-    Navigator.of(context).pop();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,37 +34,19 @@ class _PlusButton extends State<PlusButton> {
             thickness: 6,
           ),
           DrawerListSeparator(),
-          PlusListElem('Medicinale', FontAwesomeIcons.pills),
+          PlusListElem(
+              'Medicinale', FontAwesomeIcons.pills, '/medicinale/edit'),
           DrawerListSeparator(),
-          PlusListElem('Appuntamento', FontAwesomeIcons.checkCircle),
+          PlusListElem('Appuntamento', FontAwesomeIcons.checkCircle,
+              '/appuntamento/edit'),
           DrawerListSeparator(),
-          PlusListElem('Documento', FontAwesomeIcons.fileVideo),
+          PlusListElem(
+              'Documento', FontAwesomeIcons.fileVideo, '/documento/edit'),
           DrawerListSeparator(),
-          PlusListElem('Analisi', FontAwesomeIcons.fileMedicalAlt)
+          PlusListElem(
+              'Analisi', FontAwesomeIcons.fileMedicalAlt, '/analisi/edit'),
         ],
       ),
     );
   }
 }
-// TextField(
-//   cursorColor: Colors.lightGreenAccent,
-//   decoration: InputDecoration(labelText: 'Title'),
-//   controller: titleController,
-//   onSubmitted: (_) => submitData(),
-//   // onChanged: (val) {
-//   // titleInput = val;
-//   // },
-// ),
-// // TextField(
-// //   cursorColor: Colors.deepPurpleAccent,
-// //   decoration: InputDecoration(labelText: 'Title'),
-// //   controller: amountController,
-// //   keyboardType: TextInputType.number,
-// //   onSubmitted: (_) => submitData(),
-//   // onChanged: (val) => amountInput = val,
-// ),
-// FlatButton(
-//   child: Text('Add'),
-//   textColor: Colors.lightGreenAccent,
-//   onPressed: () => submitData,
-// )
