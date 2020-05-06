@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_care/ui/plus.dart';
 
 class PlusListElem extends StatelessWidget {
   final String labelTitle;
@@ -13,7 +12,7 @@ class PlusListElem extends StatelessWidget {
       child: ListTile(
         title: Text(labelTitle,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline
+            style: Theme.of(context).textTheme.headline6
             //TextStyle (color: Colors.white, ),
             ),
         trailing: FaIcon(
