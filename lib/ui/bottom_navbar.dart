@@ -34,7 +34,7 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
       backgroundColor: Colors.transparent,
       elevation: 0,
 
-      //barrierColor: null,
+      barrierColor: null,
       context: ctx,
       builder: (_) {
         return GestureDetector(
