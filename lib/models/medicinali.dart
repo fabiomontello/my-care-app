@@ -15,3 +15,4 @@ class Medicinale {
     @required this.frequancy,
   });
 }
+ 

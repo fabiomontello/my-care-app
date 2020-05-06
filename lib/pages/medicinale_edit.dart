@@ -11,5 +11,5 @@ class MedicinaleEdit extends StatelessWidget {
         child: Text('Text'),
       ),
     );
-  }
+  } 
 }

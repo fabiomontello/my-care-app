@@ -6,7 +6,7 @@ class DocumentoEdit extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Aggiungi documento'),
-      ),
+      ), 
       body: Container(
         child: Text('Text'),
       ),

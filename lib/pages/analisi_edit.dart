@@ -7,7 +7,7 @@ class AnalisiEdit extends StatelessWidget {
       appBar: AppBar(
         title: Text('Aggiungi analisi'),
       ),
-      body: Container(
+      body: Container( 
         child: Text('Text'),
       ),
     );

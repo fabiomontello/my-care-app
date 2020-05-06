@@ -7,7 +7,7 @@ class AppuntamentoEdit extends StatelessWidget {
       appBar: AppBar(
         title: Text('Aggiungi appuntamento'),
       ),
-      body: Container(
+      body: Container( 
         child: Text('Text'),
       ),
     );

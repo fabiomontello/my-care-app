@@ -10,7 +10,7 @@ class HomeList extends StatelessWidget {
             children: <Widget>[
               Text('I tuoi medicinali'),
               ListView(
-                shrinkWrap: true,
+                shrinkWrap: true, 
                 children: <Widget>[],
               ),
             ],
