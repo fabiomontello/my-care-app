@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: MyCareDrawer(_pageHandler),
       body: HomeSwitcher(_index),
-      bottomNavigationBar: MyCareBottomNavBar(_pageHandler, _index),
+      bottomNavigationBar: MyCareBottomNavBar(_pageHandler),
     );
   }
 }
