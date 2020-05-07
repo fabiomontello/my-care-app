@@ -4,7 +4,7 @@ class Medicinale {
   final String id;
   final String title;
   final String icon;
-  final bool promemoria;
+  final bool promemoria; 
   final int frequancy;
 
   const Medicinale({

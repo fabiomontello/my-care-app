@@ -7,7 +7,7 @@ import './pages/medicinale_edit.dart';
 import './pages/analisi_edit.dart';
 
 void main() => runApp(MyApp());
-
+ 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   final bool login = false;
