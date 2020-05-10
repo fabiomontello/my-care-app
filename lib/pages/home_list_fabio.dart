@@ -13,36 +13,8 @@ class HomeList extends StatefulWidget {
 class _HomeListState extends State<HomeList> {
   final List<Medicinale> medList = [
     Medicinale(
-      id: 't1',
+      id: '1 every minute',
       title: 'Buscopan',
-      icon: 'Icon',
-      promemoria: true,
-      frequancy: 3,
-    ),
-    Medicinale(
-      id: 't2',
-      title: 'Snip',
-      icon: 'Icon1',
-      promemoria: true,
-      frequancy: 2,
-    ),
-    Medicinale(
-      id: 't1',
-      title: 'Maldiculón',
-      icon: 'Icon',
-      promemoria: true,
-      frequancy: 3,
-    ),
-    Medicinale(
-      id: 't1',
-      title: 'Tanto maldiculón',
-      icon: 'Icon',
-      promemoria: true,
-      frequancy: 3,
-    ),
-    Medicinale(
-      id: 't1',
-      title: 'Troppo maldiculón',
       icon: 'Icon',
       promemoria: true,
       frequancy: 3,
@@ -50,36 +22,6 @@ class _HomeListState extends State<HomeList> {
   ];
 
   final List<Appuntamenti> appuntamentiList = [
-    Appuntamenti(
-      title: 'Visita Froscio',
-      icon: 'Icon1',
-      promemoria: true,
-      date: DateTime.now(),
-    ),
-    Appuntamenti(
-      title: 'Visita Froscio',
-      icon: 'Icon1',
-      promemoria: true,
-      date: DateTime.now(),
-    ),
-    Appuntamenti(
-      title: 'Visita Froscio',
-      icon: 'Icon1',
-      promemoria: true,
-      date: DateTime.now(),
-    ),
-    Appuntamenti(
-      title: 'Visita Froscio',
-      icon: 'Icon1',
-      promemoria: true,
-      date: DateTime.now(),
-    ),
-    Appuntamenti(
-      title: 'Visita Froscio',
-      icon: 'Icon1',
-      promemoria: true,
-      date: DateTime.now(),
-    ),
     Appuntamenti(
       title: 'Visita Froscio',
       icon: 'Icon1',
@@ -114,28 +56,28 @@ class _HomeListState extends State<HomeList> {
               ),
               ...medList.map((elem) {
                 return Container(
-                    child: ListTile(
-                      leading: Icon(
-                        FontAwesomeIcons.pills,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      title: Text(
-                        elem.title,
-                        style: TextStyle(
-                          fontFamily: 'Ubuntu',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ), 
-                      subtitle: Text(
-                        elem.id,
-                        style: TextStyle(
-                          fontFamily: 'Ubuntu',
-                          fontSize: 16,
-                        ),
+                  child: ListTile(
+                    leading: Icon(
+                      FontAwesomeIcons.pills,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    title: Text(
+                      elem.title,
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                       ),
                     ),
-                  );
+                    subtitle: Text(
+                      elem.id,
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                );
               }).toList(),
               RedSeparator(),
               ListTile(
@@ -152,37 +94,37 @@ class _HomeListState extends State<HomeList> {
               ),
               ...appuntamentiList.map((elem) {
                 return Container(
-                    child: ListTile(
-                      leading: Icon(
-                        FontAwesomeIcons.pills,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                      title: Text(
-                        elem.title,
-                        style: TextStyle(
-                          fontFamily: 'Ubuntu',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                        ),
-                      ), 
-                      subtitle: Text(
-                        DateFormat.yMMMd().format(elem.date),
-                        style: TextStyle(
-                          fontFamily: 'Ubuntu',
-                          fontSize: 16,
-                        ),
+                  child: ListTile(
+                    leading: Icon(
+                      FontAwesomeIcons.checkCircle,
+                      color: Colors.green,
+                    ),
+                    title: Text(
+                      elem.title,
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                       ),
                     ),
-                  );
+                    subtitle: Text(
+                      DateFormat.yMMMd().format(elem.date),
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                );
               }).toList(),
               // ListView.builder(
-                
+
               //   itemCount: medList.length,
               //   itemBuilder: (context, index) {
               //     return Container(
-                    
+
               //       child: ListTile(
-                      
+
               //         leading: Icon(
               //           FontAwesomeIcons.pills,
               //           color: Theme.of(context).primaryColor,
@@ -194,7 +136,7 @@ class _HomeListState extends State<HomeList> {
               //             fontWeight: FontWeight.bold,
               //             fontSize: 16,
               //           ),
-              //         ), 
+              //         ),
               //         subtitle: Text(
               //           medList[index].id,
               //           style: TextStyle(
