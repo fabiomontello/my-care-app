@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_care/pages/smart_devices.dart';
-import 'home_list_fabio.dart';
+import 'home_list.dart';
 import 'map_page.dart';
 import 'medicinali_page.dart';
 import 'appuntamenti_page.dart';

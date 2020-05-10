@@ -5,14 +5,17 @@ class Medicinale {
   final String title;
   final String icon;
   final bool promemoria; 
-  final int frequancy;
+  final int frequency;
+  final List<DateTime> promemoriaList;
 
   const Medicinale({
     @required this.id,
     @required this.title,
     @required this.icon,
     @required this.promemoria,
-    @required this.frequancy,
+    @required this.frequency,
+    @required this.promemoriaList,
   });
 }
  
+
