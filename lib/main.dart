@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: CustomColorSwatchs.appPrimaryColor,
         accentColor: Color(0xff1A938D),
         textTheme: ThemeData.light().textTheme.copyWith(
-              headline6: TextStyle(
+              headline: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Ubuntu',
                 fontWeight: FontWeight.normal,
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             ),
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
-                headline6: TextStyle( 
+                headline: TextStyle( 
                   color: Colors.white,
                   fontFamily: 'Ubuntu',
                   fontSize: 20,

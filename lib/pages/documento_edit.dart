@@ -6,9 +6,25 @@ class DocumentoEdit extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Aggiungi documento'),
-      ), 
+      ),
       body: Container(
-        child: Text('Text'),
+        padding: EdgeInsets.fromLTRB(15, 10, 15, 0),
+        child: Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    child: TextField(
+                      decoration: InputDecoration(hintText: 'Titolo Documento'),
+                    ),
+                  ),
+                ),
+                //DropdownButton(items: [DropdownB], onChanged: null)
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

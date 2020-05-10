@@ -57,7 +57,9 @@ class LoginPage extends StatelessWidget {
           "Salta",
           textAlign: TextAlign.right,
           style: TextStyle(
-              color: Color(0xffBE1622), fontSize: 20, fontWeight: FontWeight.w300),
+              color: Color(0xffBE1622),
+              fontSize: 20,
+              fontWeight: FontWeight.w300),
         ),
       ),
     );

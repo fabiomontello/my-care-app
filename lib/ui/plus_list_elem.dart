@@ -25,7 +25,7 @@ class PlusListElem extends StatelessWidget {
         ),
         title: Text(labelTitle,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline6
+            style: Theme.of(context).textTheme.headline
             //TextStyle (color: Colors.white, ),
             ),
         trailing: FaIcon(
