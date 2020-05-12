@@ -8,9 +8,7 @@ class PlusListElem extends StatelessWidget {
 
   PlusListElem(this.labelTitle, this.labelIcon, this.route);
 
-  void _openEditPage(
-    BuildContext ctx,
-  ) {
+  void _openEditPage(BuildContext ctx,) {
     Navigator.of(ctx).pop();
     Navigator.of(ctx).pushNamed(route);
   }
