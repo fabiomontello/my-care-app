@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:intl/intl.dart';
 import '../models/medicinali.dart';
+import './medicinale_edit_freq.dart';
 
 class MedicinaleEdit extends StatefulWidget {
   @override
@@ -10,47 +11,54 @@ class MedicinaleEdit extends StatefulWidget {
 }
 
 class _MedicinaleEditState extends State<MedicinaleEdit> {
-  bool _promemoria = false;
+  bool _promemoria = true;
   String dropdownValue = 'One';
   final _nomeMed = TextEditingController();
   int _frequency = 1;
   List<DateTime> timesList = [DateFormat.Hm().parse('00:00')];
+  DateTime startDate = null;
+  List<bool> dOfWeek = [];
 
-  void _submitData() {
-    if (_nomeMed.text.isEmpty) {
-      return;
-    }
+  _editAllFunc(freq, startDayDate, dOfWeekList, timelist) {
+    setState(() {
+      _frequency = freq;
+      startDate = startDayDate;
+      dOfWeek = dOfWeekList;
+      timesList = timelist;
+    });
   }
+  // void _submitData() {
+  //   if (_nomeMed.text.isEmpty) {
+  //     return;
+  //   }
+  // }
 
-  void _addFrequency() {
-    if (_frequency < 5) {
-      setState(() {
-        _frequency = _frequency + 1;
-        timesList.add(DateFormat.Hm().parse('00:00'));
-      });
-    }
-  }
+  // void _addFrequency() {
+  //   if (_frequency < 5) {
+  //     setState(() {
+  //       _frequency = _frequency + 1;
+  //       timesList.add(DateFormat.Hm().parse('00:00'));
+  //     });
+  //   }
+  // }
 
-  void _removeFrequency() {
-    if (_frequency > 1) {
-      setState(() {
-        _frequency = _frequency - 1;
-        timesList.removeLast();
-      });
-    }
-  }
+  // void _removeFrequency() {
+  //   if (_frequency > 1) {
+  //     setState(() {
+  //       _frequency = _frequency - 1;
+  //       timesList.removeLast();
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        iconTheme: new IconThemeData(color: Colors.white),
-        title: Text(
-          'Aggiungi medicinale',
-          style: TextStyle(color: Colors.white, fontSize: 20),
-        ),
-      ),
-      body: Container(
+    final _controller = new PageController();
+    const _kDuration = const Duration(milliseconds: 300);
+    const _kCurve = Curves.ease;
+
+    List<Widget> _samplePages = [
+      Container(
         padding: EdgeInsets.fromLTRB(18, 25, 18, 0),
         child: Column(
           children: [
@@ -151,84 +159,74 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                 ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                  border: Border.all(
-                      width: 2, color: Theme.of(context).primaryColor)),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                      margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                      child: Text(
-                        'Frequenza',
-                        style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            fontFamily: 'Ubuntu',
-                            fontSize: 25,
-                            color: Color(0xffBE1622)),
-                      )),
-                  Row(
-                    children: <Widget>[
-                      Container(
-                        width: 60,
-                        child: RawMaterialButton(
-                          onPressed: _removeFrequency,
-                          elevation: 2.0,
-                          fillColor: Colors.white,
-                          child: Icon(
-                            FontAwesomeIcons.minus,
-                            size: 15.0,
-                          ),
-                          padding: EdgeInsets.all(5.0),
-                          shape: CircleBorder(),
-                        ),
-                      ),
-                      Text(
-                        _frequency.toString(),
-                        style: TextStyle(fontSize: 25),
-                      ),
-                      Container(
-                        width: 60,
-                        child: RawMaterialButton(
-                          onPressed: _addFrequency,
-                          elevation: 2.0,
-                          fillColor: Colors.white,
-                          child: Icon(
-                            FontAwesomeIcons.plus,
-                            size: 15.0,
-                          ),
-                          padding: EdgeInsets.all(5.0),
-                          shape: CircleBorder(),
-                        ),
-                      ),
-                      Text(
-                        'volte al giorno',
-                        style: TextStyle(fontSize: 25),
-                      ),
-                    ],
-                  ),
-                  for (var i = 0; i < timesList.length; i++)
+            InkWell(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MedicinaleEditFreq(_editAllFunc)));
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(
+                        width: 2, color: Theme.of(context).primaryColor)),
+                child: Column(
+                  children: <Widget>[
                     Container(
-                      height: 70,
-                      child: FlatButton(
-                          onPressed: () {
-                            DatePicker.showTimePicker(context,
-                                showSecondsColumn: false,
-                                showTitleActions: true, onConfirm: (date) {
-                              setState(() {
-                                timesList[i] = date;
-                              });
+                        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                        child: Text(
+                          'Frequenza',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                              fontFamily: 'Ubuntu',
+                              fontSize: 25,
+                              color: Color(0xffBE1622)),
+                        )),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(10, 5, 10, 10),
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            _frequency.toString() + ' volte al giorno',
+                            style: TextStyle(fontSize: 25),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(10, 5, 10, 10),
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            'Orario',
+                            style: TextStyle(fontSize: 25),
+                          ),
+                        ],
+                      ),
+                    ),
+                    for (var i = 0; i < timesList.length; i++)
+                      Container(
+                        height: 70,
+                        child: FlatButton(
+                            onPressed: () {
+                              DatePicker.showTimePicker(context,
+                                  showSecondsColumn: false,
+                                  showTitleActions: true, onConfirm: (date) {
+                                setState(() {
+                                  timesList[i] = date;
+                                });
+                              },
+                                  currentTime: DateTime.now(),
+                                  locale: LocaleType.it);
                             },
-                                currentTime: DateTime.now(),
-                                locale: LocaleType.it);
-                          },
-                          padding: EdgeInsets.all(0),
-                          child: Text(
-                            DateFormat.Hm().format(timesList[i]) + ' h',
-                            style: TextStyle(color: Colors.black, fontSize: 45),
-                          )),
-                    )
-                ],
+                            padding: EdgeInsets.all(0),
+                            child: Text(
+                              DateFormat.Hm().format(timesList[i]) + ' h',
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 45),
+                            )),
+                      )
+                  ],
+                ),
               ),
             ),
             // Column(
@@ -236,6 +234,52 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
             // )
           ],
         ),
+      ),
+      Center(child: Text('Page 2'))
+    ];
+
+    return Scaffold(
+      appBar: AppBar(
+        iconTheme: new IconThemeData(color: Colors.white),
+        title: Text(
+          'Aggiungi medicinale',
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+      ),
+      body: Column(
+        children: <Widget>[
+          Flexible(
+            child: PageView.builder(
+              controller: _controller,
+              itemCount: _samplePages.length,
+              itemBuilder: (BuildContext context, int index) {
+                return _samplePages[index % _samplePages.length];
+              },
+            ),
+          ),
+          Container(
+            color: Colors.lightBlueAccent,
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                FlatButton(
+                  child: Text('Prev'),
+                  onPressed: () {
+                    _controller.previousPage(
+                        duration: _kDuration, curve: _kCurve);
+                  },
+                ),
+                FlatButton(
+                  child: Text('Next'),
+                  onPressed: () {
+                    _controller.nextPage(duration: _kDuration, curve: _kCurve);
+                  },
+                )
+              ],
+            ),
+          )
+        ],
       ),
       floatingActionButton: Builder(
         builder: (context) => FlatButton(
@@ -254,12 +298,15 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
               Navigator.of(context).pushReplacementNamed('/home', arguments: {
                 'type': 'medicinale',
                 'object': new Medicinale(
-                    frequency: _frequency,
-                    icon: dropdownValue,
-                    id: DateTime.now().toString(),
-                    promemoria: _promemoria,
-                    title: _nomeMed.text.toString(),
-                    promemoriaList: timesList)
+                  frequency: _frequency,
+                  icon: dropdownValue,
+                  id: DateTime.now().toString(),
+                  promemoria: _promemoria,
+                  title: _nomeMed.text.toString(),
+                  promemoriaList: timesList,
+                  startDate: startDate,
+                  dOfWeek: dOfWeek,
+                )
               });
             }
           },

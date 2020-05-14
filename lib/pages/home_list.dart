@@ -12,7 +12,10 @@ List<Medicinale> medList = [
       icon: 'Icon',
       promemoria: true,
       frequency: 3,
-      promemoriaList: [DateTime.now(), DateTime.now(), DateTime.now()]),
+      promemoriaList: [DateTime.now(), DateTime.now(), DateTime.now()],
+      startDate: DateTime.now(),
+      dOfWeek: [true, true, true, true, true, true, true]),
+
 ];
 
 List<Appuntamenti> appuntamentiList = [

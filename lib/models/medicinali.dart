@@ -6,7 +6,9 @@ class Medicinale {
   final String icon;
   final bool promemoria; 
   final int frequency;
+  final DateTime startDate;
   final List<DateTime> promemoriaList;
+  final List<bool> dOfWeek;
 
   const Medicinale({
     @required this.id,
@@ -15,6 +17,8 @@ class Medicinale {
     @required this.promemoria,
     @required this.frequency,
     @required this.promemoriaList,
+    @required this.startDate,
+    @required this.dOfWeek,
   });
 }
  
