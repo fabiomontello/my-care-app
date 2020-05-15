@@ -14,7 +14,13 @@ List<Medicinale> medList = [
       frequency: 3,
       promemoriaList: [DateTime.now(), DateTime.now(), DateTime.now()],
       startDate: DateTime.now(),
-      dOfWeek: [true, true, true, true, true, true, true]),
+      dOfWeek: [true, true, true, true, true, true, true],
+      applicazione: true,
+      applicazioneDose: 5,
+      applicazioneDurata: 10,
+      scorte: true,
+      scorteQuantita: 50,
+      scorteAlert : true),
 
 ];
 

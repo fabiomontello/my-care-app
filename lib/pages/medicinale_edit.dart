@@ -19,6 +19,13 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
   DateTime startDate = null;
   List<bool> dOfWeek = [];
 
+  bool applicazione = true;
+  final applicazioneDose = TextEditingController();
+  final applicazioneDurata = TextEditingController();
+  bool scorte = true;
+  final scorteQuantita = TextEditingController();
+  bool scorteAlert = false;
+
   _editAllFunc(freq, startDayDate, dOfWeekList, timelist) {
     setState(() {
       _frequency = freq;
@@ -27,29 +34,6 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
       timesList = timelist;
     });
   }
-  // void _submitData() {
-  //   if (_nomeMed.text.isEmpty) {
-  //     return;
-  //   }
-  // }
-
-  // void _addFrequency() {
-  //   if (_frequency < 5) {
-  //     setState(() {
-  //       _frequency = _frequency + 1;
-  //       timesList.add(DateFormat.Hm().parse('00:00'));
-  //     });
-  //   }
-  // }
-
-  // void _removeFrequency() {
-  //   if (_frequency > 1) {
-  //     setState(() {
-  //       _frequency = _frequency - 1;
-  //       timesList.removeLast();
-  //     });
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +43,7 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
 
     List<Widget> _samplePages = [
       Container(
+        height: double.infinity,
         padding: EdgeInsets.fromLTRB(18, 25, 18, 0),
         child: Column(
           children: [
@@ -159,7 +144,7 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                 ],
               ),
             ),
-            InkWell(
+            _promemoria ? InkWell(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => MedicinaleEditFreq(_editAllFunc)));
@@ -228,14 +213,337 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                   ],
                 ),
               ),
-            ),
+            ) : SizedBox.shrink(),
+            Container(
+                padding: EdgeInsets.only(top: 20),
+                child: FlatButton(
+                  textColor: Color(0xffBE1622),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Prossima pagina',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      Icon(
+                        Icons.chevron_right,
+                        size: 34,
+                      )
+                    ],
+                  ),
+                  onPressed: () {
+                    _controller.nextPage(duration: _kDuration, curve: _kCurve);
+                  },
+                )),
+
             // Column(
             //   children: <Widget>[],
             // )
           ],
         ),
       ),
-      Center(child: Text('Page 2'))
+      Container(
+        padding: EdgeInsets.fromLTRB(18, 25, 18, 0),
+        child: Column(
+          children: <Widget>[
+            Container(
+              // padding: EdgeInsets.fromLTRB(0, 30, 0, 10),
+              child: Row(
+                children: <Widget>[
+                  Text(
+                    'Applicazione',
+                    style: TextStyle(
+                      fontFamily: 'Ubuntu',
+                      fontSize: 25,
+                    ),
+                  ),
+                  Container(
+                    width: 60,
+                    height: 50,
+                    margin: EdgeInsets.fromLTRB(15, 5, 0, 0),
+                    child: Switch(
+                      value: applicazione,
+                      onChanged: (val) {
+                        setState(() {
+                          applicazione = val;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            applicazione ? Container(
+              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      'Dose: ',
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      width: 30,
+                      child: TextField(
+                        controller: applicazioneDose,
+                        keyboardType: TextInputType.number,
+                        style: TextStyle(
+                          //color: Color(0xffBE1622),
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal,
+                          color: Color(0xffBE1622),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Text(
+                      'ml',
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ): SizedBox.shrink(),
+            applicazione?Container(
+              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      'Durata:',
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      width: 30,
+                      child: TextField(
+                        controller: applicazioneDurata,
+                        keyboardType: TextInputType.number,
+                        style: TextStyle(
+                          //color: Color(0xffBE1622),
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal,
+                          color: Color(0xffBE1622),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Text(
+                      'giorni',
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ):SizedBox.shrink(),
+            Container(
+              // padding: EdgeInsets.fromLTRB(0, 30, 0, 10),
+              child: Row(
+                children: <Widget>[
+                  Text(
+                    'Scorte',
+                    style: TextStyle(
+                      fontFamily: 'Ubuntu',
+                      fontSize: 25,
+                    ),
+                  ),
+                  Container(
+                    width: 60,
+                    height: 50,
+                    margin: EdgeInsets.fromLTRB(15, 5, 0, 0),
+                    child: Switch(
+                      value: scorte,
+                      onChanged: (val) {
+                        setState(() {
+                          scorte = val;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            scorte?Container(
+              padding: EdgeInsets.fromLTRB(15, 10, 0, 0),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 4,
+                    child: Text(
+                      'Quantità a disposizione: ',
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      width: 30,
+                      child: TextField(
+                        controller: scorteQuantita,
+                        keyboardType: TextInputType.number,
+                        style: TextStyle(
+                          //color: Color(0xffBE1622),
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal,
+                          color: Color(0xffBE1622),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      'ml',
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ):SizedBox.shrink(),
+            scorte?Container(
+              padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Checkbox(
+                        value: scorteAlert,
+                        onChanged: (boo) {
+                          setState(() {
+                            scorteAlert = !scorteAlert;
+                          });
+                        }),
+                  ),
+                  Expanded(
+                    flex: 6,
+                    child: Text(
+                      'Avvisami quando sta per finire',
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ):SizedBox.shrink(),
+            Builder(
+              builder: (context) => Container(
+                  padding: EdgeInsets.only(top: 20),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      FlatButton(
+                        textColor: Color(0xffBE1622),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              Icons.chevron_left,
+                              size: 34,
+                            ),
+                            Text(
+                              'Torna indietro ',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ],
+                        ),
+                        onPressed: () {
+                          _controller.previousPage(
+                              duration: _kDuration, curve: _kCurve);
+                        },
+                      ),
+                      FlatButton(
+                        textColor: Color(0xffBE1622),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              'Fine',
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            Icon(
+                              Icons.chevron_right,
+                              size: 34,
+                            ),
+                          ],
+                        ),
+                        onPressed: () {
+                          if (_nomeMed.text.toString() == '') {
+                            final snackBar = SnackBar(
+                              content: Text('Inserisci il nome del medicinale'),
+                              backgroundColor: Color(0xffBE1622),
+                              duration: Duration(seconds: 3),
+                            );
+                            //Navigator.of(context).pushReplacementNamed('/home');
+                            final scaffold = Scaffold.of(context);
+                            // Find the Scaffold in the widget tree and use it to show a SnackBar.
+                            scaffold.showSnackBar(snackBar);
+                          } else {
+                            Navigator.of(context)
+                                .pushReplacementNamed('/home', arguments: {
+                              'type': 'medicinale',
+                              'object': new Medicinale(
+                                  frequency: _frequency,
+                                  icon: dropdownValue,
+                                  id: DateTime.now().toString(),
+                                  promemoria: _promemoria,
+                                  title: _nomeMed.text.toString(),
+                                  promemoriaList: timesList,
+                                  startDate: startDate,
+                                  dOfWeek: dOfWeek,
+                                  applicazione: applicazione,
+                                  applicazioneDose:
+                                      int.parse(applicazioneDose.text),
+                                  applicazioneDurata:
+                                      int.parse(applicazioneDurata.text),
+                                  scorte: scorte,
+                                  scorteQuantita:
+                                      int.parse(scorteQuantita.text),
+                                  scorteAlert: scorteAlert)
+                            });
+                          }
+                        },
+                      ),
+                    ],
+                  )),
+            ),
+          ],
+        ),
+      ),
     ];
 
     return Scaffold(
@@ -257,69 +565,69 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
               },
             ),
           ),
-          Container(
-            color: Colors.lightBlueAccent,
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                FlatButton(
-                  child: Text('Prev'),
-                  onPressed: () {
-                    _controller.previousPage(
-                        duration: _kDuration, curve: _kCurve);
-                  },
-                ),
-                FlatButton(
-                  child: Text('Next'),
-                  onPressed: () {
-                    _controller.nextPage(duration: _kDuration, curve: _kCurve);
-                  },
-                )
-              ],
-            ),
-          )
+          // Container(
+          //   color: Colors.lightBlueAccent,
+          //   child: Row(
+          //     mainAxisSize: MainAxisSize.max,
+          //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //     children: <Widget>[
+          //       FlatButton(
+          //         child: Text('Prev'),
+          //         onPressed: () {
+          //           _controller.previousPage(
+          //               duration: _kDuration, curve: _kCurve);
+          //         },
+          //       ),
+          //       FlatButton(
+          //         child: Text('Next'),
+          //         onPressed: () {
+          //           _controller.nextPage(duration: _kDuration, curve: _kCurve);
+          //         },
+          //       )
+          //     ],
+          //   ),
+          // )
         ],
       ),
-      floatingActionButton: Builder(
-        builder: (context) => FlatButton(
-          onPressed: () {
-            if (_nomeMed.text.toString() == '') {
-              final snackBar = SnackBar(
-                content: Text('Inserisci il nome del medicinale'),
-                backgroundColor: Color(0xffBE1622),
-                duration: Duration(seconds: 3),
-              );
-              //Navigator.of(context).pushReplacementNamed('/home');
-              final scaffold = Scaffold.of(context);
-              // Find the Scaffold in the widget tree and use it to show a SnackBar.
-              scaffold.showSnackBar(snackBar);
-            } else {
-              Navigator.of(context).pushReplacementNamed('/home', arguments: {
-                'type': 'medicinale',
-                'object': new Medicinale(
-                  frequency: _frequency,
-                  icon: dropdownValue,
-                  id: DateTime.now().toString(),
-                  promemoria: _promemoria,
-                  title: _nomeMed.text.toString(),
-                  promemoriaList: timesList,
-                  startDate: startDate,
-                  dOfWeek: dOfWeek,
-                )
-              });
-            }
-          },
-          child: Text(
-            "Applica",
-            textAlign: TextAlign.right,
-            style: TextStyle(
-                color: Color(0xffBE1622),
-                fontSize: 20,
-                fontWeight: FontWeight.w300),
-          ),
-        ),
-      ),
+      // floatingActionButton: Builder(
+      //   builder: (context) => FlatButton(
+      //     onPressed: () {
+      //       if (_nomeMed.text.toString() == '') {
+      //         final snackBar = SnackBar(
+      //           content: Text('Inserisci il nome del medicinale'),
+      //           backgroundColor: Color(0xffBE1622),
+      //           duration: Duration(seconds: 3),
+      //         );
+      //         //Navigator.of(context).pushReplacementNamed('/home');
+      //         final scaffold = Scaffold.of(context);
+      //         // Find the Scaffold in the widget tree and use it to show a SnackBar.
+      //         scaffold.showSnackBar(snackBar);
+      //       } else {
+      //         Navigator.of(context).pushReplacementNamed('/home', arguments: {
+      //           'type': 'medicinale',
+      //           'object': new Medicinale(
+      //             frequency: _frequency,
+      //             icon: dropdownValue,
+      //             id: DateTime.now().toString(),
+      //             promemoria: _promemoria,
+      //             title: _nomeMed.text.toString(),
+      //             promemoriaList: timesList,
+      //             startDate: startDate,
+      //             dOfWeek: dOfWeek,
+      //           )
+      //         });
+      //       }
+      //     },
+      //     child: Text(
+      //       "Applica",
+      //       textAlign: TextAlign.right,
+      //       style: TextStyle(
+      //           color: Color(0xffBE1622),
+      //           fontSize: 20,
+      //           fontWeight: FontWeight.w300),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

@@ -23,7 +23,7 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
   bool allNone = true;
 
   void _addFrequency() {
-    if (frequency < 5) {
+    if (frequency < 4) {
       setState(() {
         frequency = frequency + 1;
         timesList.add(DateFormat.Hm().parse('00:00'));

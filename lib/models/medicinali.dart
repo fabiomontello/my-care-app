@@ -9,6 +9,12 @@ class Medicinale {
   final DateTime startDate;
   final List<DateTime> promemoriaList;
   final List<bool> dOfWeek;
+  final bool applicazione;
+  final int applicazioneDose;
+  final int applicazioneDurata;
+  final bool scorte;
+  final int scorteQuantita;
+  final bool scorteAlert;
 
   const Medicinale({
     @required this.id,
@@ -19,6 +25,12 @@ class Medicinale {
     @required this.promemoriaList,
     @required this.startDate,
     @required this.dOfWeek,
+    @required this.applicazione,
+    @required this.applicazioneDose,
+    @required this.applicazioneDurata,
+    @required this.scorte,
+    @required this.scorteQuantita,
+    @required this.scorteAlert,
   });
 }
  
