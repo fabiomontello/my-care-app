@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_care/pages/medicinali_view.dart';
 import './pages/documento_edit.dart';
 import './pages/appuntamento_edit.dart';
 import './pages/login.dart';
@@ -7,7 +8,7 @@ import './pages/medicinale_edit.dart';
 import './pages/analisi_edit.dart';
 
 void main() => runApp(MyApp());
- 
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   final bool login = false;
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: CustomColorSwatchs.appPrimaryColor,
         accentColor: Color(0xff1A938D),
         textTheme: ThemeData.light().textTheme.copyWith(
-              headline: TextStyle(
+              headline6: TextStyle(
                 color: Colors.white,
                 fontFamily: 'Ubuntu',
                 fontWeight: FontWeight.normal,
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
             ),
         appBarTheme: AppBarTheme(
           textTheme: ThemeData.light().textTheme.copyWith(
-                headline: TextStyle( 
+                headline6: TextStyle(
                   color: Colors.white,
                   fontFamily: 'Ubuntu',
                   fontSize: 20,
@@ -46,6 +47,8 @@ class MyApp extends StatelessWidget {
         '/medicinale/edit': (context) => MedicinaleEdit(),
         '/documento/edit': (context) => DocumentoEdit(),
         '/analisi/edit': (context) => AnalisiEdit(),
+        '/medicinale/view': (context) => MedicinaliView(),
+       // '/appuntamento/view': (context) => (),
       },
     );
   }

@@ -20,8 +20,7 @@ List<Medicinale> medList = [
       applicazioneDurata: 10,
       scorte: true,
       scorteQuantita: 50,
-      scorteAlert : true),
-
+      scorteAlert: true),
 ];
 
 List<Appuntamenti> appuntamentiList = [
@@ -39,14 +38,13 @@ class HomeList extends StatefulWidget {
 }
 
 class _HomeListState extends State<HomeList> {
-
   @override
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
 
     if (arguments != null) {
-      if(arguments['type'] == 'medicinale'){
-        if(!medList.contains(arguments['object'])){
+      if (arguments['type'] == 'medicinale') {
+        if (!medList.contains(arguments['object'])) {
           medList.add(arguments['object']);
         }
       }
@@ -61,9 +59,6 @@ class _HomeListState extends State<HomeList> {
               //mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ListTile(
-                  //  trailing: Icon(
-                  //    FontAwesomeIcons.pills,
-                  // ),
                   dense: true,
                   title: Text(
                     'I tuoi medicinali',
@@ -79,7 +74,10 @@ class _HomeListState extends State<HomeList> {
                 ...medList.map((elem) {
                   return Container(
                     child: ListTile(
-                      onTap: (){print(elem.title);},
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/medicinale/view',
+                            arguments: {'object': elem});
+                      },
                       leading: Icon(
                         FontAwesomeIcons.pills,
                         color: Theme.of(context).primaryColor,
@@ -106,7 +104,6 @@ class _HomeListState extends State<HomeList> {
                 ListTile(
                   title: Text(
                     'I tuoi appuntamenti',
-                    //textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 18,
                       fontFamily: 'Ubuntu',
@@ -140,92 +137,9 @@ class _HomeListState extends State<HomeList> {
                     ),
                   );
                 }).toList(),
-                // ListView.builder(
-
-                //   itemCount: medList.length,
-                //   itemBuilder: (context, index) {
-                //     return Container(
-
-                //       child: ListTile(
-
-                //         leading: Icon(
-                //           FontAwesomeIcons.pills,
-                //           color: Theme.of(context).primaryColor,
-                //         ),
-                //         title: Text(
-                //           medList[index].title,
-                //           style: TextStyle(
-                //             fontFamily: 'Ubuntu',
-                //             fontWeight: FontWeight.bold,
-                //             fontSize: 16,
-                //           ),
-                //         ),
-                //         subtitle: Text(
-                //           medList[index].id,
-                //           style: TextStyle(
-                //             fontFamily: 'Ubuntu',
-                //             fontSize: 16,
-                //           ),
-                //         ),
-                //       ),
-                //     );
-                //   },
-                //   shrinkWrap: true,
-                // ),
               ],
             ),
           ),
-// ////////////////////////////////////////////////////
-
-          // Column(
-          //   children: <Widget>[
-          //     ListTile(
-          //       title: Text(
-          //         'I tuoi appuntamenti',
-          //         //textAlign: TextAlign.left,
-          //         style: TextStyle(
-          //           fontSize: 18,
-          //           fontFamily: 'Ubuntu',
-          //           fontWeight: FontWeight.bold,
-          //           color: Color(0xffBE1622),
-          //         ),
-          //       ),
-          //     ),
-          //     ListView.builder(
-          //       itemCount: appuntamentiList.length,
-          //       itemBuilder: (context, index) {
-          //         return Container(
-          //           // elevation: 5,
-          //           margin: EdgeInsets.symmetric(
-          //             horizontal: 5,
-          //           ),
-          //           child: ListTile(
-          //             leading: Icon(
-          //               FontAwesomeIcons.checkCircle,
-          //               color: Colors.green,
-          //             ),
-          //             title: Text(
-          //               appuntamentiList[index].title,
-          //               style: TextStyle(
-          //                 fontFamily: 'Ubuntu',
-          //                 fontWeight: FontWeight.bold,
-          //                 fontSize: 16,
-          //               ),
-          //             ),
-          //             subtitle: Text(
-          //               DateFormat.yMMMd().format(appuntamentiList[index].date),
-          //               style: TextStyle(
-          //                 fontFamily: 'Ubuntu',
-          //                 fontSize: 16,
-          //               ),
-          //             ),
-          //           ),
-          //         );
-          //       },
-          //       shrinkWrap: true,
-          //     ),
-          //   ],
-          // ),
         ],
       ),
     );
