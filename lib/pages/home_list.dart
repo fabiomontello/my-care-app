@@ -52,97 +52,95 @@ class _HomeListState extends State<HomeList> {
 
     return Container(
       padding: EdgeInsets.fromLTRB(15, 18, 15, 0),
-      child: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: ListView(
-                //mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  ListTile(
-                    dense: true,
-                    title: Text(
-                      'I tuoi medicinali',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xffBE1622),
-                      ),
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: ListView(
+              //mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ListTile(
+                  dense: true,
+                  title: Text(
+                    'I tuoi medicinali',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'Ubuntu',
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xffBE1622),
                     ),
                   ),
-                  ...medList.map((elem) {
-                    return Container(
-                      child: ListTile(
-                        onTap: () {
-                          Navigator.of(context).pushNamed('/medicinale/view',
-                              arguments: {'object': elem});
-                        },
-                        leading: Icon(
-                          FontAwesomeIcons.pills,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                        title: Text(
-                          elem.title,
-                          style: TextStyle(
-                            fontFamily: 'Ubuntu',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                        subtitle: Text(
-                          elem.frequency.toString() + ' volte al giorno',
-                          style: TextStyle(
-                            fontFamily: 'Ubuntu',
-                            fontSize: 16,
-                          ),
+                ),
+                ...medList.map((elem) {
+                  return Container(
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.of(context).pushNamed('/medicinale/view',
+                            arguments: {'object': elem});
+                      },
+                      leading: Icon(
+                        FontAwesomeIcons.pills,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                      title: Text(
+                        elem.title,
+                        style: TextStyle(
+                          fontFamily: 'Ubuntu',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
                         ),
                       ),
-                    );
-                  }).toList(),
-                  RedSeparator(),
-                  ListTile(
-                    title: Text(
-                      'I tuoi appuntamenti',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xffBE1622),
+                      subtitle: Text(
+                        elem.frequency.toString() + ' volte al giorno',
+                        style: TextStyle(
+                          fontFamily: 'Ubuntu',
+                          fontSize: 16,
+                        ),
                       ),
                     ),
+                  );
+                }).toList(),
+                RedSeparator(),
+                ListTile(
+                  title: Text(
+                    'I tuoi appuntamenti',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontFamily: 'Ubuntu',
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xffBE1622),
+                    ),
                   ),
-                  ...appuntamentiList.map((elem) {
-                    return Container(
-                      child: ListTile(
-                        leading: Icon(
-                          FontAwesomeIcons.checkCircle,
-                          color: Colors.green,
-                        ),
-                        title: Text(
-                          elem.title,
-                          style: TextStyle(
-                            fontFamily: 'Ubuntu',
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                        subtitle: Text(
-                          DateFormat.yMMMd().format(elem.date),
-                          style: TextStyle(
-                            fontFamily: 'Ubuntu',
-                            fontSize: 16,
-                          ),
+                ),
+                ...appuntamentiList.map((elem) {
+                  return Container(
+                    child: ListTile(
+                      leading: Icon(
+                        FontAwesomeIcons.checkCircle,
+                        color: Colors.green,
+                      ),
+                      title: Text(
+                        elem.title,
+                        style: TextStyle(
+                          fontFamily: 'Ubuntu',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
                         ),
                       ),
-                    );
-                  }).toList(),
-                ],
-              ),
+                      subtitle: Text(
+                        DateFormat.yMMMd().format(elem.date),
+                        style: TextStyle(
+                          fontFamily: 'Ubuntu',
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  );
+                }).toList(),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
