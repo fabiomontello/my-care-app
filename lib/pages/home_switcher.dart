@@ -3,7 +3,7 @@ import 'package:my_care/pages/smart_devices.dart';
 import 'home_list.dart';
 import 'map_page.dart';
 import 'medicinali_page.dart';
-import 'appuntamenti_page.dart';
+import 'appuntamenti_view.dart';
 import 'analisi_page.dart';
 import 'documenti_page.dart';
 import 'notification_list.dart';
@@ -34,7 +34,7 @@ class HomeSwitcher extends StatelessWidget {
         child = MedicinaliPage();
         break;
       case 6:
-        child = AppuntamentiPage();
+        child = AppuntamentiView();
         break;
       case 7:
         child = DocumentiPage();
