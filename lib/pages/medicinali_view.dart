@@ -1,16 +1,33 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../ui/red_separator.dart';
 import '../models/medicinali.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class MedicinaliView extends StatelessWidget {
+class MedicinaliView extends StatefulWidget {
   @override
+  _MedicinaliViewState createState() => _MedicinaliViewState();
+}
+
+class _MedicinaliViewState extends State<MedicinaliView> {
+  @override
+// void initState() {
+//     super.initState();
+//     _tapRecognizer = TapGestureRecognizer();
+//       ..onTap = https://www.buscopan.it/prodotti-buscopan-compresse';
+//   }
+
   Widget build(BuildContext context) {
     final argum = ModalRoute.of(context).settings.arguments as Map;
     Medicinale med = argum['object'];
     return Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.white),
+        title: Text(
+          'Informazioni medicinale',
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
       ),
       body: Container(
         padding: EdgeInsets.fromLTRB(18, 25, 18, 0),
@@ -48,39 +65,100 @@ class MedicinaliView extends StatelessWidget {
               //alignment: FractionalOffset.bottomCenter,
             ),
             RedSeparator(),
+            Column(
+              children: [
+                Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.fromLTRB(15, 18, 15, 10),
+                  child: Text(
+                    'Note',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Ubuntu',
+                    ),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  padding: EdgeInsets.fromLTRB(15, 0, 15, 10),
+                  child: Text(
+                    'Antodolorifico',
+                    style: TextStyle(
+                      fontFamily: 'Ubuntu',
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            RedSeparator(),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.fromLTRB(15, 18, 15, 40),
+              padding: EdgeInsets.fromLTRB(15, 18, 15, 10),
               child: RichText(
                 text: TextSpan(
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontFamily: 'Ubuntu',
-                    // fontWeight: FontWeight.bold, here for both
-                  ),
-                  children: <TextSpan>[
+                  children: [
                     TextSpan(
-                      text: 'Note',
-                    
-                    ),
-                    TextSpan(
-                      text: 'Antidolorifico',
+                      text: 'Scopri di più',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 18,
                         fontFamily: 'Ubuntu',
-                        //fontWeight: FontWeight.bold
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          launch(
+                              'https://www.buscopan.it/prodotti-buscopan-compresse');
+                        },
+                    ),
+                    TextSpan(
+                      text: ' su Buscopan',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Ubuntu',
+                        fontSize: 20,
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            RedSeparator(),
+            Container(
+              margin: EdgeInsets.fromLTRB(10, 10, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  IconButton(
+                    onPressed: null,
+                    icon: Icon(
+                      Icons.edit,
+                      color: Color(0xffBE1622),
+                      size: 36,
+                    ),
+                  ),
+                  IconButton(
+                      icon: Icon(
+                        Icons.delete,
+                        color: Color(0xffBE1622),
+                        size: 36,
+                      ),
+                      onPressed: null)
+                ],
+              ),
+            ),
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Color(0xffBE1622),
+          child: Icon(
+            Icons.add,
+            size: 50,
+          ),
+          onPressed: () {}),
     );
   }
 }
