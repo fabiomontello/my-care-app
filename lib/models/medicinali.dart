@@ -1,13 +1,20 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+enum TipoMedicinale{
+  pillole,
+  compresse,
+  goccie
+}
 
 class Medicinale {
   final String id;
   final String title;
-  final String icon;
+  final TipoMedicinale icon;
   final bool promemoria; 
   final int frequency;
   final DateTime startDate;
-  final List<DateTime> promemoriaList;
+  final List<TimeOfDay> promemoriaList;
   final List<bool> dOfWeek;
   final bool applicazione;
   final int applicazioneDose;
@@ -15,6 +22,7 @@ class Medicinale {
   final bool scorte;
   final int scorteQuantita;
   final bool scorteAlert;
+  final String note;
 
   const Medicinale({
     @required this.id,
@@ -31,6 +39,7 @@ class Medicinale {
     @required this.scorte,
     @required this.scorteQuantita,
     @required this.scorteAlert,
+    @required this.note,
   });
 }
  

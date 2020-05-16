@@ -18,7 +18,7 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
   _MedicinaleEditFreqState(this.editallFunc);
   DateTime dataAppuntamento = DateTime.now();
   int frequency = 1;
-  List<DateTime> timesList = [DateFormat.Hm().parse('00:00')];
+  List<TimeOfDay> timesList = [TimeOfDay.fromDateTime(DateFormat.Hm().parse('00:00'))];
   List<bool> weekCheck = [true, true, true, true, true, true, true];
   bool allNone = true;
 
@@ -26,7 +26,7 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
     if (frequency < 4) {
       setState(() {
         frequency = frequency + 1;
-        timesList.add(DateFormat.Hm().parse('00:00'));
+        timesList.add(TimeOfDay.fromDateTime(DateFormat.Hm().parse('00:00')));
       });
     }
   }
@@ -38,6 +38,23 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
         timesList.removeLast();
       });
     }
+  }
+
+  void _presentDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime.now(),
+      lastDate: DateTime(2022),
+    ).then((pickedDate) {
+      if (pickedDate == null) {
+        return;
+      }
+      setState(() {
+        dataAppuntamento = pickedDate;
+      });
+    });
+    print('...');
   }
 
   @override
@@ -70,15 +87,7 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
             Container(
               padding: EdgeInsets.only(top: 20),
               child: FlatButton(
-                  onPressed: () {
-                    DatePicker.showDatePicker(context,
-                        minTime: DateTime.now(),
-                        showTitleActions: true, onConfirm: (date) {
-                      setState(() {
-                        dataAppuntamento = date;
-                      });
-                    }, currentTime: DateTime.now(), locale: LocaleType.it);
-                  },
+                  onPressed: _presentDatePicker,
                   padding: EdgeInsets.all(0),
                   child: Text(
                     'Data inizio: ' +
@@ -285,8 +294,8 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
       floatingActionButton: Builder(
         builder: (context) => FlatButton(
           onPressed: () {
-               editallFunc(frequency, dataAppuntamento, weekCheck, timesList);
-               Navigator.of(context).pop();
+            editallFunc(frequency, dataAppuntamento, weekCheck, timesList);
+            Navigator.of(context).pop();
           },
           child: Text(
             "Applica",

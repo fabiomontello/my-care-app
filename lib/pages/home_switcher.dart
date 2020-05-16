@@ -24,6 +24,7 @@ class HomeSwitcher extends StatelessWidget {
         child = SmartDevices();
         break;
       case 2:
+      break;
       case 3:
         child = NotificationList();
         break;

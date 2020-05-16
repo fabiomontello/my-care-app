@@ -9,10 +9,14 @@ List<Medicinale> medList = [
   Medicinale(
       id: '1 every minute',
       title: 'Buscopan',
-      icon: 'Icon',
+      icon: TipoMedicinale.compresse,
       promemoria: true,
       frequency: 3,
-      promemoriaList: [DateTime.now(), DateTime.now(), DateTime.now()],
+      promemoriaList: [
+        TimeOfDay.fromDateTime(DateTime.now()),
+        TimeOfDay.fromDateTime(DateTime.now()),
+        TimeOfDay.fromDateTime(DateTime.now())
+      ],
       startDate: DateTime.now(),
       dOfWeek: [true, true, true, true, true, true, true],
       applicazione: true,
@@ -20,15 +24,20 @@ List<Medicinale> medList = [
       applicazioneDurata: 10,
       scorte: true,
       scorteQuantita: 50,
-      scorteAlert: true),
+      scorteAlert: true,
+      note: ''),
 ];
 
 List<Appuntamenti> appuntamentiList = [
   Appuntamenti(
+    id: 'jdnsjkncjknj',
     title: 'Visita Froscio',
-    icon: 'Icon1',
     promemoria: true,
     date: DateTime.now(),
+    repeatAppointment: Frequency.None,
+    promemoriaTime: -1,
+    tipo: TipoApp.rosso,
+    note: ''
   ),
 ];
 
@@ -38,15 +47,41 @@ class HomeList extends StatefulWidget {
 }
 
 class _HomeListState extends State<HomeList> {
+  IconData _medIcons(val){
+    switch(val){
+      case TipoMedicinale.compresse:
+        return FontAwesomeIcons.pills;
+      case TipoMedicinale.goccie:
+        return FontAwesomeIcons.tint;
+      case TipoMedicinale.pillole:
+        return FontAwesomeIcons.tablets;
+    }
+    return FontAwesomeIcons.pills;
+  }
+
+  _appIcons(val){
+    switch(val){
+      case TipoApp.rosso:
+        return Colors.redAccent;
+      case TipoApp.blue:
+        return Colors.blueAccent;
+      case TipoApp.verde:
+        return Colors.greenAccent;
+    }
+    return Colors.white;
+  }
   @override
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
 
     if (arguments != null) {
       if (arguments['type'] == 'medicinale') {
-        if (!medList.contains(arguments['object'])) {
-          medList.add(arguments['object']);
-        }
+        medList.removeWhere((item) => item.id == arguments['object'].id);
+        medList.add(arguments['object']);
+      }
+      if (arguments['type'] == 'appuntamento') {
+        appuntamentiList.removeWhere((item) => item.id == arguments['object'].id);
+        appuntamentiList.add(arguments['object']);
       }
     }
 
@@ -79,7 +114,7 @@ class _HomeListState extends State<HomeList> {
                             arguments: {'object': elem});
                       },
                       leading: Icon(
-                        FontAwesomeIcons.pills,
+                        _medIcons(elem.icon),
                         color: Theme.of(context).primaryColor,
                       ),
                       title: Text(
@@ -116,9 +151,10 @@ class _HomeListState extends State<HomeList> {
                   return Container(
                     child: ListTile(
                       leading: Icon(
-                        FontAwesomeIcons.checkCircle,
-                        color: Colors.green,
-                      ),
+                                  Icons.fiber_manual_record,
+                                  color: _appIcons(elem.tipo),
+                                  size: 35,
+                                ),
                       title: Text(
                         elem.title,
                         style: TextStyle(
