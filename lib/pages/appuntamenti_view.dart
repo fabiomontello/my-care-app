@@ -15,6 +15,8 @@ class _AppuntamentiViewState extends State<AppuntamentiView> {
   static const _kDuration = const Duration(milliseconds: 300);
   static const _kCurve = Curves.ease;
   int index = 0;
+  static DateTime now = DateTime.now();
+  static String formattedDate = DateFormat('yyyy-MM-dd – kk:mm').format(now);
 
   static _appIcons(val) {
     switch (val) {
@@ -34,27 +36,47 @@ class _AppuntamentiViewState extends State<AppuntamentiView> {
         children: [
           ...appuntamentiList.map((elem) {
             return Container(
-              child: ListTile(
-                leading: Icon(
-                  Icons.fiber_manual_record,
-                  color: _appIcons(elem.tipo),
-                  size: 35,
-                ),
-                title: Text(
-                  elem.title,
-                  style: TextStyle(
-                    fontFamily: 'Ubuntu',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+              width: double.infinity,
+              padding: EdgeInsets.fromLTRB(15, 18, 15, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ListTile(
+                    leading: Icon(
+                      Icons.fiber_manual_record,
+                      color: _appIcons(elem.tipo),
+                      size: 35,
+                    ),
+                    title: Text(
+                      elem.title,
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    subtitle: Text(
+                      formattedDate,
+                      //DateFormat.yMMMd().format(elem.date),
+                      style: TextStyle(
+                        fontFamily: 'Ubuntu',
+                        fontSize: 16,
+                      ),
+                    ),
                   ),
-                ),
-                subtitle: Text(
-                  DateFormat.yMMMd().format(elem.date),
-                  style: TextStyle(
-                    fontFamily: 'Ubuntu',
-                    fontSize: 16,
+                  Column(
+                    children: [
+                      ListTile(
+                        subtitle: Text(
+                          elem.note,
+                          style: TextStyle(
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
+                ],
               ),
             );
           }).toList(),

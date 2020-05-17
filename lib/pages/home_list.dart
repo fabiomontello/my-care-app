@@ -30,14 +30,14 @@ List<Medicinale> medList = [
 
 List<Appuntamenti> appuntamentiList = [
   Appuntamenti(
-      id: 'jdnsjkncjknj',
-      title: 'Visita Froscio',
+      id: 'dentificaçion',
+      title: 'Visita Fricalo',
       promemoria: true,
       date: DateTime.now(),
       repeatAppointment: Frequency.None,
       promemoriaTime: -1,
       tipo: TipoApp.rosso,
-      note: ''),
+      note: 'Portare analisi sangue, via Milano 12, UDINE'),
 ];
 
 class HomeList extends StatefulWidget {
