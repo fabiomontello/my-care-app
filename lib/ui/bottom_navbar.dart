@@ -30,7 +30,7 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
       builder: (_) {
         return GestureDetector(
           onTap: () {},
-          child: PlusButton(),
+          child: PlusButton(_onItemTapped),
           behavior: HitTestBehavior.translucent,
         );
       },

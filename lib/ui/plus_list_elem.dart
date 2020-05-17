@@ -5,12 +5,17 @@ class PlusListElem extends StatelessWidget {
   final String labelTitle;
   final IconData labelIcon;
   final String route;
+  final Function onItemTapped;
 
-  PlusListElem(this.labelTitle, this.labelIcon, this.route);
+  PlusListElem(this.labelTitle, this.labelIcon, this.route, this.onItemTapped);
 
   void _openEditPage(BuildContext ctx,) {
     Navigator.of(ctx).pop();
-    Navigator.of(ctx).pushNamed(route);
+    if(route == '/documento/edit' || route == '/analisi/edit'){
+      Navigator.of(ctx).pushNamed(route, arguments: {'routeFunction': onItemTapped});
+    } else{
+      Navigator.of(ctx).pushNamed(route);
+    }
   }
 
   @override

@@ -4,13 +4,16 @@ import './drawer_list_separator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PlusButton extends StatefulWidget {
-  PlusButton();
+  final Function onItemTapped;
+  PlusButton(this.onItemTapped);
 
   @override
-  _PlusButton createState() => _PlusButton(); 
+  _PlusButton createState() => _PlusButton(onItemTapped); 
 }
 
 class _PlusButton extends State<PlusButton> {
+  final Function _onItemTapped;
+  _PlusButton(this._onItemTapped);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,16 +38,15 @@ class _PlusButton extends State<PlusButton> {
           ),
           DrawerListSeparator(),
           PlusListElem(
-              'Medicinale', FontAwesomeIcons.pills, '/medicinale/edit'),
+              'Medicinale', FontAwesomeIcons.pills, '/medicinale/edit', null),
           DrawerListSeparator(),
           PlusListElem('Appuntamento', FontAwesomeIcons.checkCircle,
-              '/appuntamento/edit'),
+              '/appuntamento/edit', null),
+          DrawerListSeparator(),
+          PlusListElem('Documento', FontAwesomeIcons.fileVideo, '/documento/edit', _onItemTapped),
           DrawerListSeparator(),
           PlusListElem(
-              'Documento', FontAwesomeIcons.fileVideo, '/documento/edit'),
-          DrawerListSeparator(),
-          PlusListElem(
-              'Analisi', FontAwesomeIcons.fileMedicalAlt, '/analisi/edit'),
+              'Analisi', FontAwesomeIcons.fileMedicalAlt, '/analisi/edit', null),
         ],
       ),
     );
