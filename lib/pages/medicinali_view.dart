@@ -156,7 +156,7 @@ class _MedicinaliViewState extends State<MedicinaliView> {
           backgroundColor: Color(0xffBE1622),
           child: Icon(
             Icons.add,
-            size: 50,
+            size: 40,
           ),
           onPressed: () {}),
     );

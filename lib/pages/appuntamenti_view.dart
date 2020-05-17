@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'home_list.dart';
+import 'package:intl/intl.dart';
+import '../models/appuntamenti.dart';
 
 class AppuntamentiView extends StatefulWidget {
   @override
@@ -11,16 +14,57 @@ class _AppuntamentiViewState extends State<AppuntamentiView> {
   final _controller = new PageController();
   static const _kDuration = const Duration(milliseconds: 300);
   static const _kCurve = Curves.ease;
+  int index = 0;
+
+  static _appIcons(val) {
+    switch (val) {
+      case TipoApp.rosso:
+        return Colors.redAccent;
+      case TipoApp.blue:
+        return Colors.blueAccent;
+      case TipoApp.verde:
+        return Colors.greenAccent;
+    }
+    return Colors.white;
+  }
 
   List<Widget> _samplePages = [
-    Center(
-      child: Text('Page 1'),
+    Container(
+      child: Column(
+        children: [
+          ...appuntamentiList.map((elem) {
+            return Container(
+              child: ListTile(
+                leading: Icon(
+                  Icons.fiber_manual_record,
+                  color: _appIcons(elem.tipo),
+                  size: 35,
+                ),
+                title: Text(
+                  elem.title,
+                  style: TextStyle(
+                    fontFamily: 'Ubuntu',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+                subtitle: Text(
+                  DateFormat.yMMMd().format(elem.date),
+                  style: TextStyle(
+                    fontFamily: 'Ubuntu',
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+            );
+          }).toList(),
+        ],
+      ),
     ),
     TableCalendar(
-    calendarController: _calendarController,
-  )
+      calendarController: _calendarController,
+    )
   ];
-
 
   @override
   void dispose() {
@@ -43,25 +87,44 @@ class _AppuntamentiViewState extends State<AppuntamentiView> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  FlatButton(
-                    child: Text('Lista'),
-                    onPressed: () {
-                      _controller.previousPage(
-                          duration: _kDuration, curve: _kCurve);
-                    },
+                  Expanded(
+                    child: Container(
+                      color: index == 0 ? Colors.grey[50] : Colors.white,
+                      height: 60,
+                      child: FlatButton(
+                        child: Text('Lista'),
+                        onPressed: () {
+                          setState(() {
+                            index = 0;
+                          });
+                          _controller.previousPage(
+                              duration: _kDuration, curve: _kCurve);
+                        },
+                      ),
+                    ),
                   ),
-                  FlatButton(
-                    child: Text('Calendario'),
-                    onPressed: () {
-                      _controller.nextPage(
-                          duration: _kDuration, curve: _kCurve);
-                    },
+                  Expanded(
+                    child: Container(
+                      color: index == 1 ? Colors.grey[50] : Colors.white,
+                      height: 60,
+                      child: FlatButton(
+                        child: Text('Calendario'),
+                        onPressed: () {
+                          setState(() {
+                            index = 1;
+                          });
+                          _controller.nextPage(
+                              duration: _kDuration, curve: _kCurve);
+                        },
+                      ),
+                    ),
                   )
                 ],
               ),
             ),
             Flexible(
               child: PageView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 controller: _controller,
                 itemCount: _samplePages.length,
                 itemBuilder: (BuildContext context, int index) {
@@ -69,7 +132,6 @@ class _AppuntamentiViewState extends State<AppuntamentiView> {
                 },
               ),
             ),
-            
           ],
         ),
       ),

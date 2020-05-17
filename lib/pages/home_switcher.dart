@@ -11,14 +11,15 @@ import 'notification_list.dart';
 
 class HomeSwitcher extends StatelessWidget {
   final int index;
-  HomeSwitcher(this.index);
+  final Function homeSwitcher;
+  HomeSwitcher(this.index, this.homeSwitcher);
 
   @override
   Widget build(BuildContext context) {
     Widget child = Text('This text ' + index.toString());
     switch (index) {
       case 0:
-        child = HomeList();
+        child = HomeList(homeSwitcher);
         break;
       case 1:
         child = SmartDevices();

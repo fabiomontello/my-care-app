@@ -30,25 +30,28 @@ List<Medicinale> medList = [
 
 List<Appuntamenti> appuntamentiList = [
   Appuntamenti(
-    id: 'jdnsjkncjknj',
-    title: 'Visita Froscio',
-    promemoria: true,
-    date: DateTime.now(),
-    repeatAppointment: Frequency.None,
-    promemoriaTime: -1,
-    tipo: TipoApp.rosso,
-    note: ''
-  ),
+      id: 'jdnsjkncjknj',
+      title: 'Visita Froscio',
+      promemoria: true,
+      date: DateTime.now(),
+      repeatAppointment: Frequency.None,
+      promemoriaTime: -1,
+      tipo: TipoApp.rosso,
+      note: ''),
 ];
 
 class HomeList extends StatefulWidget {
+  final Function homeSwitcher;
+  HomeList(this.homeSwitcher);
   @override
-  _HomeListState createState() => _HomeListState();
+  _HomeListState createState() => _HomeListState(homeSwitcher);
 }
 
 class _HomeListState extends State<HomeList> {
-  IconData _medIcons(val){
-    switch(val){
+  final Function homeSwitcher;
+  _HomeListState(this.homeSwitcher);
+  IconData _medIcons(val) {
+    switch (val) {
       case TipoMedicinale.compresse:
         return FontAwesomeIcons.pills;
       case TipoMedicinale.goccie:
@@ -59,8 +62,8 @@ class _HomeListState extends State<HomeList> {
     return FontAwesomeIcons.pills;
   }
 
-  _appIcons(val){
-    switch(val){
+  _appIcons(val) {
+    switch (val) {
       case TipoApp.rosso:
         return Colors.redAccent;
       case TipoApp.blue:
@@ -70,6 +73,7 @@ class _HomeListState extends State<HomeList> {
     }
     return Colors.white;
   }
+
   @override
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
@@ -80,7 +84,8 @@ class _HomeListState extends State<HomeList> {
         medList.add(arguments['object']);
       }
       if (arguments['type'] == 'appuntamento') {
-        appuntamentiList.removeWhere((item) => item.id == arguments['object'].id);
+        appuntamentiList
+            .removeWhere((item) => item.id == arguments['object'].id);
         appuntamentiList.add(arguments['object']);
       }
     }
@@ -148,26 +153,29 @@ class _HomeListState extends State<HomeList> {
                   ),
                 ),
                 ...appuntamentiList.map((elem) {
-                  return Container(
-                    child: ListTile(
-                      leading: Icon(
-                                  Icons.fiber_manual_record,
-                                  color: _appIcons(elem.tipo),
-                                  size: 35,
-                                ),
-                      title: Text(
-                        elem.title,
-                        style: TextStyle(
-                          fontFamily: 'Ubuntu',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
+                  return InkWell(
+                    onTap: () => homeSwitcher(6),
+                    child: Container(
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.fiber_manual_record,
+                          color: _appIcons(elem.tipo),
+                          size: 35,
                         ),
-                      ),
-                      subtitle: Text(
-                        DateFormat.yMMMd().format(elem.date),
-                        style: TextStyle(
-                          fontFamily: 'Ubuntu',
-                          fontSize: 16,
+                        title: Text(
+                          elem.title,
+                          style: TextStyle(
+                            fontFamily: 'Ubuntu',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        subtitle: Text(
+                          DateFormat.yMMMd().format(elem.date),
+                          style: TextStyle(
+                            fontFamily: 'Ubuntu',
+                            fontSize: 16,
+                          ),
                         ),
                       ),
                     ),

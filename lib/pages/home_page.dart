@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
         iconTheme: new IconThemeData(color: Colors.white),
       ),
       drawer: MyCareDrawer(_pageHandler),
-      body: HomeSwitcher(_index),
+      body: HomeSwitcher(_index, _pageHandler),
       bottomNavigationBar: MyCareBottomNavBar(_pageHandler),
     );
   }

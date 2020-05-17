@@ -48,7 +48,6 @@ class MyApp extends StatelessWidget {
         '/documento/edit': (context) => DocumentoEdit(),
         '/analisi/edit': (context) => AnalisiEdit(),
         '/medicinale/view': (context) => MedicinaliView(),
-       // '/appuntamento/view': (context) => (),
       },
     );
   }
