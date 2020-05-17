@@ -2,14 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_care/ui/plus.dart';
-
+import '../logos/logos.dart';
 class MyCareBottomNavBar extends StatefulWidget {
   final Function pageHandler;
 
   @override
-  MyCareBottomNavBar(
-    this.pageHandler
-  );
+  MyCareBottomNavBar(this.pageHandler);
   _MyCareBottomNavBarState createState() =>
       _MyCareBottomNavBarState(pageHandler);
 }
@@ -18,10 +16,10 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     _pageHandler(index);
-  setState(() {
+    setState(() {
       _selectedIndex = index;
     });
-  } 
+  }
 
   void startAddButton(BuildContext ctx) {
     showModalBottomSheet(
@@ -37,9 +35,6 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
         );
       },
     );
-    setState(() {
-      _selectedIndex = 2;
-    });
   }
 
   final Function _pageHandler;
@@ -48,48 +43,91 @@ class _MyCareBottomNavBarState extends State<MyCareBottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(0),
+      margin: EdgeInsets.all(0),
       height: 50,
-      color: Theme.of(context).primaryColor,
+      color: Color(0xFFE0E0E0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Expanded(
             flex: 1,
-            child: IconButton(
-                icon: Icon(Icons.home),
-                onPressed: () => _onItemTapped(0),
-                color: _selectedIndex == 0 ? Colors.white : null),
-          ),
-          Expanded(
-            flex: 1,
-            child: IconButton(
-                icon: Icon(Icons.watch),
-                onPressed: () => _onItemTapped(1),
-                color: _selectedIndex == 1 ? Colors.white : null),
-          ),
-          Expanded(
-            flex: 1,
-            child: IconButton(
-              onPressed: () => startAddButton(context),
-              icon: Icon(Icons.add_circle),
+            child: Container(
+              padding: EdgeInsets.all(0),
+              margin: EdgeInsets.all(0),
+              height: 50,
+              color:
+                  _selectedIndex == 0 ? Theme.of(context).primaryColor : null,
+              child: IconButton(
+                  icon: Icon(Icons.home, size: 35),
+                  onPressed: () => _onItemTapped(0),
+                  color: _selectedIndex == 0
+                      ? Colors.white
+                      : Theme.of(context).primaryColor),
             ),
           ),
           Expanded(
             flex: 1,
-            child: IconButton(
-                // disabledColor: Colors.black,
-                icon: Icon(Icons.notifications),
-                onPressed: () => _onItemTapped(3),
-                color: _selectedIndex == 3 ? Colors.white : null
-                // highlightColor: InkResponse(onTap: Colors.white,
-                ),
+            child: Container(
+              padding: EdgeInsets.all(0),
+              margin: EdgeInsets.all(0),
+              height: 50,
+              color:
+                  _selectedIndex == 1 ? Theme.of(context).primaryColor : null,
+              child: IconButton(
+                  icon: Icon(Icons.watch, size: 35),
+                  onPressed: () => _onItemTapped(1),
+                  color: _selectedIndex == 1
+                      ? Colors.white
+                      : Theme.of(context).primaryColor),
+            ),
           ),
           Expanded(
             flex: 1,
-            child: IconButton(
-                icon: Icon(Icons.place),
-                onPressed: () => _onItemTapped(4),
-                color: _selectedIndex == 4 ? Colors.white : null),
+            child: Container(
+              padding: EdgeInsets.all(0),
+              margin: EdgeInsets.all(0),
+              height: 50,
+              child: InkWell(
+                onTap: () => startAddButton(context),
+                child: plusButton,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(0),
+              margin: EdgeInsets.all(0),
+              height: 50,
+              color:
+                  _selectedIndex == 3 ? Theme.of(context).primaryColor : null,
+              child: IconButton(
+                  // disabledColor: Colors.black,
+                  icon: Icon(Icons.notifications, size: 35),
+                  onPressed: () => _onItemTapped(3),
+                  color: _selectedIndex == 3
+                      ? Colors.white
+                      : Theme.of(context).primaryColor
+                  // highlightColor: InkResponse(onTap: Colors.white,
+                  ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(0),
+              margin: EdgeInsets.all(0),
+              height: 50,
+              color:
+                  _selectedIndex == 4 ? Theme.of(context).primaryColor : null,
+              child: IconButton(
+                  icon: Icon(Icons.place, size: 35,),
+                  onPressed: () => _onItemTapped(4),
+                  color: _selectedIndex == 4
+                      ? Colors.white
+                      : Theme.of(context).primaryColor),
+            ),
           ),
         ],
       ),

@@ -11,3 +11,9 @@ Image loginBigLogo = new Image(
     height: 200.0,
     width: 200.0,
     alignment: FractionalOffset.center);
+  
+Image plusButton = new Image(
+    image: new ExactAssetImage("assets/icon/Aggiungi.png"),
+    height: 70.0,
+    width: 70.0,
+    alignment: FractionalOffset.center);
