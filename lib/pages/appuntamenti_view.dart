@@ -55,26 +55,20 @@ class _AppuntamentiViewState extends State<AppuntamentiView> {
                         fontSize: 16,
                       ),
                     ),
-                    subtitle: Text(
-                      formattedDate,
-                      //DateFormat.yMMMd().format(elem.date),
-                      style: TextStyle(
-                        fontFamily: 'Ubuntu',
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      ListTile(
-                        subtitle: Text(
-                          elem.note,
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          formattedDate,
+                          //DateFormat.yMMMd().format(elem.date),
                           style: TextStyle(
+                            fontFamily: 'Ubuntu',
                             fontSize: 16,
                           ),
                         ),
-                      ),
-                    ],
+                        Text(elem.note)
+                      ],
+                    ),
                   ),
                 ],
               ),
