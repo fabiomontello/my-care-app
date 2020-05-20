@@ -12,9 +12,9 @@ class MedicinaliPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Expanded(
-                child: ListView(
-                    //mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
+              child: ListView(
+                //mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
                   ListTile(
                     dense: true,
                     title: Text(
@@ -58,7 +58,9 @@ class MedicinaliPage extends StatelessWidget {
                     );
                   }).toList(),
                   RedSeparator(),
-                ]))
+                ],
+              ),
+            ),
           ],
         ),
       ),

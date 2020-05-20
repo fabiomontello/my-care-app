@@ -17,3 +17,10 @@ Image plusButton = new Image(
     height: 70.0,
     width: 70.0,
     alignment: FractionalOffset.center);
+
+    Image snakeHealth = new Image(
+    image: new ExactAssetImage("assets/icon/snake.png"),
+    height: 70.0,
+    width: 70.0,
+    color: Color(0xff1A938D),
+    alignment: FractionalOffset.center);
