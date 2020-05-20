@@ -80,8 +80,8 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                         decoration: InputDecoration(
                           hintText: "Nome del medicinale",
                           fillColor: Color(0xffBE1622),
-                          hintStyle: TextStyle(color: Color(0xffBE1622)),
-                          helperStyle: TextStyle(color: Color(0xffBE1622)),
+                          hintStyle: TextStyle(color: Color(0xffBE1622),fontFamily: 'Ubuntu',),
+                          helperStyle: TextStyle(color: Color(0xffBE1622),fontFamily: 'Ubuntu',),
                           enabledBorder: new UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xffBE1622),

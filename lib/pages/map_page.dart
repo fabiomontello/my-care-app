@@ -10,55 +10,51 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
-  final _controller = new PageController();
-  static const _kDuration = const Duration(milliseconds: 300);
-  static const _kCurve = Curves.ease;
-  int index = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            Container(
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(60.0)),
-                onPressed: () {
-                  setState(() {
-                    index = 0;
-                  });
-                  _controller.nextPage(duration: _kDuration, curve: _kCurve);
-                },
-                child: Text(
-                  'Ospedali',
-                  style: TextStyle(color: Colors.white),
+        Container(
+          margin: EdgeInsets.fromLTRB(20, 20, 14, 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              Container(
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(60.0)),
+                  onPressed: () {},
+                  child: Text(
+                    'Ospedali',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Ubuntu',
+                      fontSize: 18,
+                    ),
+                  ),
+                  color: Color(0xffBE1622),
                 ),
-                color: Color(0xffBE1622),
               ),
-            ),
-            Container(
-              child: RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(60.0),
+              Container(
+                child: RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(60.0),
+                  ),
+                  onPressed: () {},
+                  textColor: Color(0xffBE1622),
+                  child: Text(
+                    'Farmacie',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Ubuntu',
+                      fontSize: 18,
+                    ),
+                  ),
+                  color: Color(0xffBE1622),
                 ),
-                onPressed: () {
-                  setState(() {
-                    index = 1;
-                  });
-                  _controller.previousPage(
-                      duration: _kDuration, curve: _kCurve);
-                },
-                textColor: Color(0xffBE1622),
-                child: Text(
-                  'Farmacie',
-                  style: TextStyle(color: Colors.white),
-                ),
-                color: Color(0xffBE1622),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         Expanded(
           child: Container(

@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
               ),
               Text(
                 'Benvenuto!',
-                style: TextStyle(fontSize: 40),
+                style: TextStyle(fontSize: 40, fontFamily: 'Ubuntu',),
               ),
               Container(
                 width: double.infinity,
@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
                 child: Text(
                   'Accedi',
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, fontFamily: 'Ubuntu',),
                 ),
               ),
               TextFormField(
@@ -44,6 +44,7 @@ class LoginPage extends StatelessWidget {
                   style: TextStyle(
                       color: Color(0xffBE1622),
                       fontSize: 20,
+                      fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -61,6 +62,7 @@ class LoginPage extends StatelessWidget {
           style: TextStyle(
               color: Color(0xffBE1622),
               fontSize: 20,
+              fontFamily: 'Ubuntu',
               fontWeight: FontWeight.w300),
         ),
       ),

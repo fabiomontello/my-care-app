@@ -17,7 +17,9 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
   _MedicinaleEditFreqState(this.editallFunc);
   DateTime dataAppuntamento = DateTime.now();
   int frequency = 1;
-  List<TimeOfDay> timesList = [TimeOfDay.fromDateTime(DateFormat.Hm().parse('00:00'))];
+  List<TimeOfDay> timesList = [
+    TimeOfDay.fromDateTime(DateFormat.Hm().parse('00:00'))
+  ];
   List<bool> weekCheck = [true, true, true, true, true, true, true];
   bool allNone = true;
 
@@ -63,7 +65,11 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
         iconTheme: new IconThemeData(color: Colors.white),
         title: Text(
           'Modifica frequenza',
-          style: TextStyle(color: Colors.white, fontSize: 20),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontFamily: 'Ubuntu',
+          ),
         ),
       ),
       body: Container(
@@ -94,6 +100,7 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Colors.black,
+                      fontFamily: 'Ubuntu',
                       // fontWeight: FontWeight.bold,
                       fontSize: 30,
                     ),
@@ -119,7 +126,10 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
                   ),
                   Text(
                     frequency.toString(),
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'Ubuntu',
+                    ),
                   ),
                   Container(
                     width: 60,
@@ -137,7 +147,10 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
                   ),
                   Text(
                     'volte al giorno',
-                    style: TextStyle(fontSize: 25),
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'Ubuntu',
+                    ),
                   ),
                 ],
               ),
@@ -146,7 +159,13 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
               padding: EdgeInsets.only(top: 20),
               child: Row(
                 children: <Widget>[
-                  Text('Tutti i giorni', style: TextStyle(fontSize: 25)),
+                  Text(
+                    'Tutti i giorni',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'Ubuntu',
+                    ),
+                  ),
                   Checkbox(
                       value: allNone,
                       onChanged: (boo) {
@@ -302,6 +321,7 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
             style: TextStyle(
                 color: Color(0xffBE1622),
                 fontSize: 20,
+                fontFamily: 'Ubuntu',
                 fontWeight: FontWeight.w300),
           ),
         ),
