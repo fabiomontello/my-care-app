@@ -26,7 +26,11 @@ class _MedicinaliViewState extends State<MedicinaliView> {
         iconTheme: new IconThemeData(color: Colors.white),
         title: Text(
           'Informazioni medicinale',
-          style: TextStyle(color: Colors.white, fontSize: 20),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontFamily: 'Ubuntu',
+          ),
         ),
       ),
       body: Container(

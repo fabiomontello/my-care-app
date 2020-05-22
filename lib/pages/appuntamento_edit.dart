@@ -4,7 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:my_care/models/appuntamenti.dart';
 
-
 class AppuntamentoEdit extends StatefulWidget {
   @override
   _AppuntamentoEditState createState() => _AppuntamentoEditState();
@@ -81,7 +80,11 @@ class _AppuntamentoEditState extends State<AppuntamentoEdit> {
         iconTheme: new IconThemeData(color: Colors.white),
         title: Text(
           'Aggiungi appuntamento',
-          style: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Ubuntu',),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontFamily: 'Ubuntu',
+          ),
         ),
       ),
       body: Container(
@@ -103,8 +106,14 @@ class _AppuntamentoEditState extends State<AppuntamentoEdit> {
                         decoration: InputDecoration(
                           hintText: "Titolo appuntamento",
                           fillColor: Color(0xffBE1622),
-                          hintStyle: TextStyle(color: Color(0xffBE1622),fontFamily: 'Ubuntu',),
-                          helperStyle: TextStyle(color: Color(0xffBE1622), fontFamily: 'Ubuntu',),
+                          hintStyle: TextStyle(
+                            color: Color(0xffBE1622),
+                            fontFamily: 'Ubuntu',
+                          ),
+                          helperStyle: TextStyle(
+                            color: Color(0xffBE1622),
+                            fontFamily: 'Ubuntu',
+                          ),
                           enabledBorder: new UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xffBE1622),
@@ -138,8 +147,7 @@ class _AppuntamentoEditState extends State<AppuntamentoEdit> {
                               dropdownValue = newValue;
                             });
                           },
-                          items: TipoApp.values
-                              .map((TipoApp classType) {
+                          items: TipoApp.values.map((TipoApp classType) {
                             int idx = classType.index;
                             return DropdownMenuItem<TipoApp>(
                                 value: classType,
@@ -267,7 +275,10 @@ class _AppuntamentoEditState extends State<AppuntamentoEdit> {
                           ),
                           Text(
                             _alertBefore.toString(),
-                            style: TextStyle(fontSize: 25, fontFamily: 'Ubuntu',),
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontFamily: 'Ubuntu',
+                            ),
                           ),
                           Container(
                             width: 60,
@@ -285,14 +296,21 @@ class _AppuntamentoEditState extends State<AppuntamentoEdit> {
                           ),
                           Text(
                             'minuti prima',
-                            style: TextStyle(fontSize: 25, fontFamily: 'Ubuntu',),
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontFamily: 'Ubuntu',
+                            ),
                           ),
                         ],
                       ),
                     )
                   : SizedBox.shrink(),
               TextField(
-                style: TextStyle(color: Colors.black, fontSize: 25, fontFamily: 'Ubuntu',),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontFamily: 'Ubuntu',
+                ),
                 autofocus: false,
                 controller: _noteController,
                 keyboardType: TextInputType.multiline,
@@ -341,8 +359,7 @@ class _AppuntamentoEditState extends State<AppuntamentoEdit> {
                     repeatAppointment: ripetiApp,
                     tipo: dropdownValue,
                     title: _nomeApp.text,
-                    note: _noteController.text
-                    )
+                    note: _noteController.text)
               });
             }
           },

@@ -50,8 +50,14 @@ class _DocumentoEditState extends State<DocumentoEdit> {
                         decoration: InputDecoration(
                           hintText: "Titolo documento",
                           fillColor: Color(0xffBE1622),
-                          hintStyle: TextStyle(color: Color(0xffBE1622), fontFamily: 'Ubuntu',),
-                          helperStyle: TextStyle(color: Color(0xffBE1622), fontFamily: 'Ubuntu',),
+                          hintStyle: TextStyle(
+                            color: Color(0xffBE1622),
+                            fontFamily: 'Ubuntu',
+                          ),
+                          helperStyle: TextStyle(
+                            color: Color(0xffBE1622),
+                            fontFamily: 'Ubuntu',
+                          ),
                           enabledBorder: new UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xffBE1622),
@@ -235,7 +241,11 @@ class _DocumentoEditState extends State<DocumentoEdit> {
               Container(
                 padding: EdgeInsets.only(top: 55),
                 child: TextField(
-                  style: TextStyle(color: Colors.black, fontSize: 25, fontFamily: 'Ubuntu',),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                    fontFamily: 'Ubuntu',
+                  ),
                   autofocus: false,
                   controller: _noteController,
                   keyboardType: TextInputType.multiline,

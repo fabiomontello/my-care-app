@@ -43,8 +43,14 @@ class _AnalisiEditState extends State<AnalisiEdit> {
                     decoration: InputDecoration(
                       hintText: "Titolo analisi",
                       fillColor: Color(0xffBE1622),
-                      hintStyle: TextStyle(color: Color(0xffBE1622),fontFamily: 'Ubuntu',),
-                      helperStyle: TextStyle(color: Color(0xffBE1622),fontFamily: 'Ubuntu',),
+                      hintStyle: TextStyle(
+                        color: Color(0xffBE1622),
+                        fontFamily: 'Ubuntu',
+                      ),
+                      helperStyle: TextStyle(
+                        color: Color(0xffBE1622),
+                        fontFamily: 'Ubuntu',
+                      ),
                       enabledBorder: new UnderlineInputBorder(
                         borderSide: BorderSide(
                           color: Color(0xffBE1622),
@@ -108,8 +114,8 @@ class _AnalisiEditState extends State<AnalisiEdit> {
                               ),
                               onPressed: () {
                                 setState(() {
-                                  
-                                  if(!categList.contains(_nuovaCat.text) && _nuovaCat.text != ''){
+                                  if (!categList.contains(_nuovaCat.text) &&
+                                      _nuovaCat.text != '') {
                                     categList.add(_nuovaCat.text);
                                   }
                                   _nuovaCat.clear();
@@ -138,7 +144,11 @@ class _AnalisiEditState extends State<AnalisiEdit> {
         iconTheme: new IconThemeData(color: Colors.white),
         title: Text(
           'Aggiungi analisi',
-          style: TextStyle(color: Colors.white, fontSize: 20,fontFamily: 'Ubuntu',),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontFamily: 'Ubuntu',
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -207,8 +217,14 @@ class _AnalisiEditState extends State<AnalisiEdit> {
                           decoration: InputDecoration(
                             hintText: "Titolo analisi",
                             fillColor: Color(0xffBE1622),
-                            hintStyle: TextStyle(color: Color(0xffBE1622),fontFamily: 'Ubuntu',),
-                            helperStyle: TextStyle(color: Color(0xffBE1622),fontFamily: 'Ubuntu',),
+                            hintStyle: TextStyle(
+                              color: Color(0xffBE1622),
+                              fontFamily: 'Ubuntu',
+                            ),
+                            helperStyle: TextStyle(
+                              color: Color(0xffBE1622),
+                              fontFamily: 'Ubuntu',
+                            ),
                             enabledBorder: new UnderlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(0xffBE1622),
@@ -244,7 +260,10 @@ class _AnalisiEditState extends State<AnalisiEdit> {
                   onPressed: () {},
                   child: Text(
                     'Aggiungi il tuo file',
-                    style: TextStyle(color: Colors.white,fontFamily: 'Ubuntu',),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Ubuntu',
+                    ),
                   ),
                   color: Color(0xffBE1622),
                 ),
@@ -252,7 +271,11 @@ class _AnalisiEditState extends State<AnalisiEdit> {
               Container(
                 padding: EdgeInsets.only(top: 55),
                 child: TextField(
-                  style: TextStyle(color: Colors.black, fontSize: 25, fontFamily: 'Ubuntu',),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                    fontFamily: 'Ubuntu',
+                  ),
                   autofocus: false,
                   controller: _noteController,
                   keyboardType: TextInputType.multiline,

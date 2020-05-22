@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong/latlong.dart';
 import '../logos/logos.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+
 
 class MapPage extends StatefulWidget {
   @override
@@ -79,9 +80,11 @@ class _MapPageState extends State<MapPage> {
                         // child: Icon(
                         //   FontAwesomeIcons.snake,
                       ),
+                      
                     ),
                   ],
                 ),
+               // CircleLayerOptions(circles: )
               ],
             ),
           ),

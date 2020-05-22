@@ -20,10 +20,11 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
   DateTime startDate = null;
   List<bool> dOfWeek = [];
 
-  List<IconData> iconsList = [FontAwesomeIcons.pills, 
-                              FontAwesomeIcons.tablets, 
-                              FontAwesomeIcons.tint];
-
+  List<IconData> iconsList = [
+    FontAwesomeIcons.pills,
+    FontAwesomeIcons.tablets,
+    FontAwesomeIcons.tint
+  ];
 
   bool applicazione = true;
   final applicazioneDose = TextEditingController();
@@ -41,8 +42,9 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
       timesList = timelist;
     });
   }
-  String _textQuantity(){
-    switch(dropdownValue){
+
+  String _textQuantity() {
+    switch (dropdownValue) {
       case TipoMedicinale.compresse:
         return 'mg';
       case TipoMedicinale.goccie:
@@ -52,6 +54,7 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
     }
     return '';
   }
+
   @override
   Widget build(BuildContext context) {
     final _controller = new PageController();
@@ -80,8 +83,14 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                         decoration: InputDecoration(
                           hintText: "Nome del medicinale",
                           fillColor: Color(0xffBE1622),
-                          hintStyle: TextStyle(color: Color(0xffBE1622),fontFamily: 'Ubuntu',),
-                          helperStyle: TextStyle(color: Color(0xffBE1622),fontFamily: 'Ubuntu',),
+                          hintStyle: TextStyle(
+                            color: Color(0xffBE1622),
+                            fontFamily: 'Ubuntu',
+                          ),
+                          helperStyle: TextStyle(
+                            color: Color(0xffBE1622),
+                            fontFamily: 'Ubuntu',
+                          ),
                           enabledBorder: new UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xffBE1622),
@@ -98,6 +107,7 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                         style: TextStyle(
                           //color: Color(0xffBE1622),
                           fontSize: 25,
+                          fontFamily: 'Ubuntu',
                           fontWeight: FontWeight.normal,
                           color: Color(0xffBE1622),
                         ),
@@ -188,7 +198,10 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                                 children: <Widget>[
                                   Text(
                                     _frequency.toString() + ' volte al giorno',
-                                    style: TextStyle(fontSize: 25),
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      fontFamily: 'Ubuntu',
+                                    ),
                                   ),
                                 ],
                               ),
@@ -199,7 +212,10 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                                 children: <Widget>[
                                   Text(
                                     'Orario',
-                                    style: TextStyle(fontSize: 25),
+                                    style: TextStyle(
+                                      fontSize: 25,
+                                      fontFamily: 'Ubuntu',
+                                    ),
                                   ),
                                 ],
                               ),
@@ -236,7 +252,10 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                                               .padLeft(2, '0') +
                                           ' h',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 45),
+                                        color: Colors.black,
+                                        fontSize: 45,
+                                        fontFamily: 'Ubuntu',
+                                      ),
                                     )),
                               )
                           ],
@@ -253,7 +272,10 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                       children: <Widget>[
                         Text(
                           'Prossima pagina',
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'Ubuntu',
+                          ),
                         ),
                         Icon(
                           Icons.chevron_right,
@@ -332,6 +354,7 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                                 style: TextStyle(
                                   //color: Color(0xffBE1622),
                                   fontSize: 20,
+                                  fontFamily: 'Ubuntu',
                                   fontWeight: FontWeight.normal,
                                   color: Color(0xffBE1622),
                                 ),
@@ -378,6 +401,7 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                                 style: TextStyle(
                                   //color: Color(0xffBE1622),
                                   fontSize: 20,
+                                  fontFamily: 'Ubuntu',
                                   fontWeight: FontWeight.normal,
                                   color: Color(0xffBE1622),
                                 ),
@@ -451,6 +475,7 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                                 style: TextStyle(
                                   //color: Color(0xffBE1622),
                                   fontSize: 20,
+                                  fontFamily: 'Ubuntu',
                                   fontWeight: FontWeight.normal,
                                   color: Color(0xffBE1622),
                                 ),
@@ -501,7 +526,11 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                     )
                   : SizedBox.shrink(),
               TextField(
-                style: TextStyle(color: Colors.black, fontSize: 25),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontFamily: 'Ubuntu',
+                ),
                 autofocus: false,
                 controller: _note,
                 keyboardType: TextInputType.multiline,
@@ -536,7 +565,10 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                               ),
                               Text(
                                 'Torna indietro ',
-                                style: TextStyle(fontSize: 18),
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'Ubuntu',
+                                ),
                               ),
                             ],
                           ),
@@ -552,7 +584,10 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                             children: <Widget>[
                               Text(
                                 'Fine',
-                                style: TextStyle(fontSize: 18),
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontFamily: 'Ubuntu',
+                                ),
                               ),
                               Icon(
                                 Icons.chevron_right,
@@ -620,7 +655,11 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
         iconTheme: new IconThemeData(color: Colors.white),
         title: Text(
           'Aggiungi medicinale',
-          style: TextStyle(color: Colors.white, fontSize: 20),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontFamily: 'Ubuntu',
+          ),
         ),
       ),
       body: Column(
