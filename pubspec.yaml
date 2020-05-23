@@ -25,6 +25,7 @@ dependencies:
   intl: ^0.16.1
   url_launcher: ^5.4.7
   table_calendar: ^2.2.3
+  flutter_map: ^0.9.0
   
 flutter_icons:
   android: "launcher_icon" 
@@ -55,6 +56,7 @@ flutter:
     - "./assets/icon/Logo_app_bianco.png"
     - "./assets/icon/Logo_app_con-nome.png"
     - "./assets/icon/Aggiungi.png"
+    - "./assets/icon/snake.png"
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -50,8 +50,14 @@ class _DocumentoEditState extends State<DocumentoEdit> {
                         decoration: InputDecoration(
                           hintText: "Titolo documento",
                           fillColor: Color(0xffBE1622),
-                          hintStyle: TextStyle(color: Color(0xffBE1622)),
-                          helperStyle: TextStyle(color: Color(0xffBE1622)),
+                          hintStyle: TextStyle(
+                            color: Color(0xffBE1622),
+                            fontFamily: 'Ubuntu',
+                          ),
+                          helperStyle: TextStyle(
+                            color: Color(0xffBE1622),
+                            fontFamily: 'Ubuntu',
+                          ),
                           enabledBorder: new UnderlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xffBE1622),
@@ -70,6 +76,7 @@ class _DocumentoEditState extends State<DocumentoEdit> {
                           fontSize: 25,
                           fontWeight: FontWeight.normal,
                           color: Color(0xffBE1622),
+                          fontFamily: 'Ubuntu',
                         ),
                       ),
                     ),
@@ -91,7 +98,10 @@ class _DocumentoEditState extends State<DocumentoEdit> {
                   onPressed: () {},
                   child: Text(
                     'Aggiungi il tuo file',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Ubuntu',
+                    ),
                   ),
                   color: Color(0xffBE1622),
                 ),
@@ -142,6 +152,7 @@ class _DocumentoEditState extends State<DocumentoEdit> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 18,
+                                      fontFamily: 'Ubuntu',
                                       color: _tipoDoc == TipoDoc.fotoVideo
                                           ? Colors.white
                                           : null),
@@ -174,6 +185,7 @@ class _DocumentoEditState extends State<DocumentoEdit> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 18,
+                                      fontFamily: 'Ubuntu',
                                       color: _tipoDoc == TipoDoc.audio
                                           ? Colors.white
                                           : null),
@@ -213,6 +225,7 @@ class _DocumentoEditState extends State<DocumentoEdit> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 18,
+                                      fontFamily: 'Ubuntu',
                                       color: _tipoDoc == TipoDoc.documento
                                           ? Colors.white
                                           : null),
@@ -228,7 +241,11 @@ class _DocumentoEditState extends State<DocumentoEdit> {
               Container(
                 padding: EdgeInsets.only(top: 55),
                 child: TextField(
-                  style: TextStyle(color: Colors.black, fontSize: 25),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                    fontFamily: 'Ubuntu',
+                  ),
                   autofocus: false,
                   controller: _noteController,
                   keyboardType: TextInputType.multiline,
@@ -287,6 +304,7 @@ class _DocumentoEditState extends State<DocumentoEdit> {
             textAlign: TextAlign.right,
             style: TextStyle(
                 color: Color(0xffBE1622),
+                fontFamily: 'Ubuntu',
                 fontSize: 20,
                 fontWeight: FontWeight.w300),
           ),

@@ -22,6 +22,7 @@ class MyCareDrawer extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 36,
+                  fontFamily: 'Ubuntu',
                 ),
               ),
             ),

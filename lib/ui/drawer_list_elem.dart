@@ -14,8 +14,14 @@ class DrawerListElem extends StatelessWidget {
       pageHandler(pageNumber);
     };
     return ListTile(
-      title:
-          Text(this.label, style: TextStyle(color: Colors.white, fontSize: 22)),
+      title: Text(
+        this.label,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 22,
+          fontFamily: 'Ubuntu',
+        ),
+      ),
       onTap: onTapGeneral,
       contentPadding: listDrawerPadding,
       dense: true,
