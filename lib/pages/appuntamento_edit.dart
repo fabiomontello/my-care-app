@@ -349,18 +349,21 @@ class _AppuntamentoEditState extends State<AppuntamentoEdit> {
               // Find the Scaffold in the widget tree and use it to show a SnackBar.
               scaffold.showSnackBar(snackBar);
             } else {
-              Navigator.of(context).pushReplacementNamed('/home', arguments: {
-                'type': 'appuntamento',
-                'object': new Appuntamenti(
-                    id: DateTime.now().toString(),
-                    date: dataAppuntamento,
-                    promemoria: _promemoria,
-                    promemoriaTime: _alertBefore,
-                    repeatAppointment: ripetiApp,
-                    tipo: dropdownValue,
-                    title: _nomeApp.text,
-                    note: _noteController.text)
-              });
+              Navigator.of(context).pushReplacementNamed(
+                '/home',
+                arguments: {
+                  'type': 'appuntamento',
+                  'object': new Appuntamenti(
+                      id: DateTime.now().toString(),
+                      date: dataAppuntamento,
+                      promemoria: _promemoria,
+                      promemoriaTime: _alertBefore,
+                      repeatAppointment: ripetiApp,
+                      tipo: dropdownValue,
+                      title: _nomeApp.text,
+                      note: _noteController.text)
+                },
+              );
             }
           },
           child: Text(

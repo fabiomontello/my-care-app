@@ -23,18 +23,6 @@ class LoginPage extends StatelessWidget {
                   fontFamily: 'Ubuntu',
                 ),
               ),
-              Container(
-                width: double.infinity,
-                margin: EdgeInsets.only(top: 20),
-                child: Text(
-                  'Accedi',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Ubuntu',
-                  ),
-                ),
-              ),
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(labelText: "User"),
@@ -48,7 +36,7 @@ class LoginPage extends StatelessWidget {
                   Navigator.pushNamed(context, '/home');
                 },
                 child: Text(
-                  "Registrati",
+                  "Accedi",
                   style: TextStyle(
                       color: Color(0xffBE1622),
                       fontSize: 20,
@@ -75,22 +63,5 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
-    // void main() {
-    //   var isLoggedIn = false;
-    //   var userName = 'Sandrula';
-    //   var password = 'tester';
-    //   var hasCorrectCredentials = userName == 'Sandrula' $$ password == tester;
-    //   if (hasCorrectCredentials) { (Navigator.pushNamed(context, '/home'),);
-    //   }
-    //   else ()
   }
 }
-
-// void main() {
-//       var isLoggedIn = false;
-//       var userName = 'Sandrula';
-//       var password = 'tester';
-//       var hasCorrectCredentials = userName == 'Sandrula' $$ pasword == tester;
-//       if (hasCorrectCredentials) { go to main;
-//       }
-//       else ()
