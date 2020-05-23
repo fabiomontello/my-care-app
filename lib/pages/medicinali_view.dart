@@ -17,6 +17,17 @@ class _MedicinaliViewState extends State<MedicinaliView> {
 //     _tapRecognizer = TapGestureRecognizer();
 //       ..onTap = https://www.buscopan.it/prodotti-buscopan-compresse';
 //   }
+  String _textQuantity(val){
+    switch(val){
+      case TipoMedicinale.compresse:
+        return 'mg';
+      case TipoMedicinale.goccie:
+        return 'ml';
+      case TipoMedicinale.pillole:
+        return '';
+    }
+    return '';
+  }
 
   Widget build(BuildContext context) {
     final argum = ModalRoute.of(context).settings.arguments as Map;
@@ -55,10 +66,20 @@ class _MedicinaliViewState extends State<MedicinaliView> {
               width: double.infinity,
               padding: EdgeInsets.fromLTRB(15, 18, 15, 0),
               child: Text(
-                'Here will be the elem, no ? And I have to write more so I can se how it goes.',
+                med.applicazioneDose.toString() + ' ' +
+                _textQuantity(med.icon) + ' di ' + med.title +
+                 ' da assumere ' + med.promemoriaList.length.toString()
+                 + ' al giorno'+ 
+                 (med.applicazione?(', alle ' + 
+                 med.promemoriaList.map((e) => 'ore ' + e.hour.toString()+
+                                                ':'+e.minute.toString())
+                                                .toString()
+                                                .replaceAll('(', '')
+                                                .replaceAll(')', '')
+                                                .replaceFirst(',', ' e', 6*med.promemoriaList.length)) + '.': '.'),
                 style: TextStyle(
                   fontFamily: 'Ubuntu',
-                  fontSize: 18,
+                  fontSize: 22,
                 ),
               ),
               margin: EdgeInsets.only(bottom: 20),
@@ -83,7 +104,7 @@ class _MedicinaliViewState extends State<MedicinaliView> {
                   width: double.infinity,
                   padding: EdgeInsets.fromLTRB(15, 0, 15, 10),
                   child: Text(
-                    'Antodolorifico',
+                    med.note == ''? 'Nessuna nota': med.note,
                     style: TextStyle(
                       fontFamily: 'Ubuntu',
                       fontSize: 18,
@@ -115,7 +136,7 @@ class _MedicinaliViewState extends State<MedicinaliView> {
                         },
                     ),
                     TextSpan(
-                      text: ' su Buscopan',
+                      text: ' su '+med.title,
                       style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Ubuntu',
