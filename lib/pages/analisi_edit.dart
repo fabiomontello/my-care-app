@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../models/analisi.dart';
+import './analisi_page.dart';
 
 class AnalisiEdit extends StatefulWidget {
   @override
@@ -11,10 +13,10 @@ class _AnalisiEditState extends State<AnalisiEdit> {
   final _nuovaCat = TextEditingController();
 
   final _noteController = TextEditingController();
-  final categList = [
+  final categList = (anList.keys.map((e) => e.toString()).toList() + [
     'Analisi del sangue',
     'Analisi colesterolo',
-  ];
+  ]).toSet().toList();
 
   void startAddButton(BuildContext ctx) {
     Navigator.of(ctx).pop();
@@ -139,6 +141,9 @@ class _AnalisiEditState extends State<AnalisiEdit> {
 
   @override
   Widget build(BuildContext context) {
+    final Map arguments = ModalRoute.of(context).settings.arguments as Map;
+    final Function onItemTapped = arguments['routeFunction'];
+
     return Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.white),
@@ -294,6 +299,50 @@ class _AnalisiEditState extends State<AnalisiEdit> {
                 ),
               )
             ]),
+          ),
+        ),
+      ),
+      floatingActionButton: Builder(
+        builder: (context) => FlatButton(
+          onPressed: () {
+            if (_nomeAn.text.toString() == '' || categoria == null) {
+              final snackBar = SnackBar(
+                content: Text('Inserisci il nome del documento e la categoria'),
+                backgroundColor: Color(0xffBE1622),
+                duration: Duration(seconds: 3),
+              );
+              //Navigator.of(context).pushReplacementNamed('/home');
+              final scaffold = Scaffold.of(context);
+              // Find the Scaffold in the widget tree and use it to show a SnackBar.
+              scaffold.showSnackBar(snackBar);
+            } else {
+              onItemTapped(8);
+              if( anList[categoria] == null){
+                anList[categoria] = [];
+              }
+              anList[categoria] = anList[categoria] +
+                  [
+                    Analisi(
+                        id: DateTime.now().toString(),
+                        titolo: _nomeAn.text.toString(),
+                        note: _noteController.text.toString())
+                  ];
+              Navigator.of(context).pop();
+              // docuList.add(Documenti(
+              //     id: DateTime.now().toString(),
+              //     title: _nomeDoc.text,
+              //     tipoDoc: _tipoDoc,
+              //     note: _noteController.text));
+            }
+          },
+          child: Text(
+            "Applica",
+            textAlign: TextAlign.right,
+            style: TextStyle(
+                color: Color(0xffBE1622),
+                fontFamily: 'Ubuntu',
+                fontSize: 20,
+                fontWeight: FontWeight.w300),
           ),
         ),
       ),

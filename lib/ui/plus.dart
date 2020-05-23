@@ -46,7 +46,7 @@ class _PlusButton extends State<PlusButton> {
           PlusListElem('Documento', FontAwesomeIcons.fileVideo, '/documento/edit', _onItemTapped),
           DrawerListSeparator(),
           PlusListElem(
-              'Analisi', FontAwesomeIcons.fileMedicalAlt, '/analisi/edit', null),
+              'Analisi', FontAwesomeIcons.fileMedicalAlt, '/analisi/edit', _onItemTapped),
         ],
       ),
     );

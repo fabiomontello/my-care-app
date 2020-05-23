@@ -6,38 +6,38 @@ import 'package:intl/intl.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 List<Medicinale> medList = [
-  Medicinale(
-      id: '1 every minute',
-      title: 'Buscopan',
-      icon: TipoMedicinale.compresse,
-      promemoria: true,
-      frequency: 3,
-      promemoriaList: [
-        TimeOfDay.fromDateTime(DateTime.now()),
-        TimeOfDay.fromDateTime(DateTime.now()),
-        TimeOfDay.fromDateTime(DateTime.now())
-      ],
-      startDate: DateTime.now(),
-      dOfWeek: [true, true, true, true, true, true, true],
-      applicazione: true,
-      applicazioneDose: 5,
-      applicazioneDurata: 10,
-      scorte: true,
-      scorteQuantita: 50,
-      scorteAlert: true,
-      note: ''),
+  // Medicinale(
+  //     id: '1 every minute',
+  //     title: 'Buscopan',
+  //     icon: TipoMedicinale.compresse,
+  //     promemoria: true,
+  //     frequency: 3,
+  //     promemoriaList: [
+  //       TimeOfDay.fromDateTime(DateTime.now()),
+  //       TimeOfDay.fromDateTime(DateTime.now()),
+  //       TimeOfDay.fromDateTime(DateTime.now())
+  //     ],
+  //     startDate: DateTime.now(),
+  //     dOfWeek: [true, true, true, true, true, true, true],
+  //     applicazione: true,
+  //     applicazioneDose: 5,
+  //     applicazioneDurata: 10,
+  //     scorte: true,
+  //     scorteQuantita: 50,
+  //     scorteAlert: true,
+  //     note: ''),
 ];
 
 List<Appuntamenti> appuntamentiList = [
-  Appuntamenti(
-      id: 'dentificaçion',
-      title: 'Visita Fricalo',
-      promemoria: true,
-      date: DateTime.now(),
-      repeatAppointment: Frequency.None,
-      promemoriaTime: -1,
-      tipo: TipoApp.rosso,
-      note: 'Portare analisi sangue, via Milano 12, UDINE'),
+  // Appuntamenti(
+  //     id: 'dentificaçion',
+  //     title: 'Visita Fricalo',
+  //     promemoria: true,
+  //     date: DateTime.now(),
+  //     repeatAppointment: Frequency.None,
+  //     promemoriaTime: -1,
+  //     tipo: TipoApp.rosso,
+  //     note: 'Portare analisi sangue, via Milano 12, UDINE'),
 ];
 
 class HomeList extends StatefulWidget {
@@ -140,6 +140,22 @@ class _HomeListState extends State<HomeList> {
                     ),
                   );
                 }).toList(),
+                medList.length == 0
+                    ? Container(
+                        margin: EdgeInsets.only(bottom:15),
+                        child: ListTile(
+                          title: Text(
+                            'Non hai ancora inserito nessun medicinale',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontFamily: 'Ubuntu',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      )
+                    : SizedBox.shrink(),
                 RedSeparator(),
                 ListTile(
                   title: Text(
@@ -171,7 +187,7 @@ class _HomeListState extends State<HomeList> {
                           ),
                         ),
                         subtitle: Text(
-                          DateFormat.yMMMd().format(elem.date),
+                          DateFormat('dd MMM yy – kk:mm').format(elem.date),
                           style: TextStyle(
                             fontFamily: 'Ubuntu',
                             fontSize: 16,
@@ -181,6 +197,19 @@ class _HomeListState extends State<HomeList> {
                     ),
                   );
                 }).toList(),
+                appuntamentiList.length == 0
+                    ? ListTile(
+                        title: Text(
+                          'Non hai ancora inserito nessun appuntamento',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'Ubuntu',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                          ),
+                        ),
+                      )
+                    : SizedBox.shrink()
               ],
             ),
           ),

@@ -6,6 +6,7 @@ import './pages/login.dart';
 import './pages/home_page.dart';
 import './pages/medicinale_edit.dart';
 import './pages/analisi_edit.dart';
+import './pages/analisi_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
         '/documento/edit': (context) => DocumentoEdit(),
         '/analisi/edit': (context) => AnalisiEdit(),
         '/medicinale/view': (context) => MedicinaliView(),
+        '/analisi/view': (context) => AnalisiView(),
       },
     );
   }

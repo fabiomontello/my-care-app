@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import './home_list.dart';
-import '../ui/red_separator.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MedicinaliPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +57,22 @@ class MedicinaliPage extends StatelessWidget {
                       ),
                     );
                   }).toList(),
-                  RedSeparator(),
+                  medList.length == 0
+                      ? Container(
+                          margin: EdgeInsets.only(bottom: 15),
+                          child: ListTile(
+                            title: Text(
+                              'Non hai ancora inserito nessun medicinale',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontFamily: 'Ubuntu',
+                                fontWeight: FontWeight.normal,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        )
+                      : SizedBox.shrink(),
                 ],
               ),
             ),

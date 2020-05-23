@@ -29,7 +29,15 @@ class _DocumentoEditState extends State<DocumentoEdit> {
     final Function onItemTapped = arguments['routeFunction'];
     return Scaffold(
       appBar: AppBar(
-        title: Text('Aggiungi documento'),
+        iconTheme: new IconThemeData(color: Colors.white),
+        title: Text(
+          'Aggiungi documento',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontFamily: 'Ubuntu',
+          ),
+        ),
       ),
       body: Container(
         padding: EdgeInsets.fromLTRB(18, 25, 18, 0),
