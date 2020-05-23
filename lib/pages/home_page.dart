@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_care/models/user.dart';
 import '../ui/drawer.dart';
 import '../ui/bottom_navbar.dart';
 import '../logos/logos.dart';
@@ -32,6 +33,22 @@ class _MyHomePageState extends State<MyHomePage> {
           child: appLogo,
         ),
         iconTheme: new IconThemeData(color: Colors.white),
+
+        actions: <Widget>[
+          InkWell(
+            onTap: () {Navigator.pushNamed(context, '/profilo/page');;},
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(60),
+              child: Image.asset(
+                info.img,
+                width: 50.0,
+                height: 50.0,
+                fit: BoxFit.cover,
+
+              ),
+            ),
+          ),
+        ],
       ),
       drawer: MyCareDrawer(_pageHandler),
       body: HomeSwitcher(_index, _pageHandler),
@@ -39,3 +56,14 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+User info  = User(
+    idUser: 1,
+    id: 'Valentino V68',
+    nome: 'Valentino',
+    cognome: 'Visentin',
+    data: DateTime(1968,03,21),
+    img: "assets/images/Brad_Pitt.jpg"
+
+);

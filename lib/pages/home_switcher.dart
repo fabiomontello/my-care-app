@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_care/pages/profilo_page.dart';
 import 'package:my_care/pages/smart_devices.dart';
 import 'home_list.dart';
 import 'map_page.dart';
@@ -43,6 +44,9 @@ class HomeSwitcher extends StatelessWidget {
         break;
       case 8:
         child = AnalisiPage();
+        break;
+      case 9:
+        child = ProfiloPage();
         break;
       default:
     }

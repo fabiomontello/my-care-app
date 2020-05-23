@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_care/pages/medicinali_view.dart';
+import 'package:my_care/pages/profilo_page.dart';
 import './pages/documento_edit.dart';
 import './pages/appuntamento_edit.dart';
 import './pages/login.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         '/analisi/edit': (context) => AnalisiEdit(),
         '/medicinale/view': (context) => MedicinaliView(),
         '/analisi/view': (context) => AnalisiView(),
+        '/profilo/page': (context) => ProfiloPage(),
       },
     );
   }
