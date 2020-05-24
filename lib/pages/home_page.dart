@@ -60,10 +60,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
 User info  = User(
     idUser: 1,
-    id: 'Valentino V68',
+    id: 'ValentinoV68',
     nome: 'Valentino',
     cognome: 'Visentin',
     data: DateTime(1968,03,21),
-    img: "assets/images/Brad_Pitt.jpg"
+    img: "assets/images/Brad_Pitt.jpg",
+    pw: 'password',
+    email: 'vale68@gmail.com'
 
 );
