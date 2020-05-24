@@ -11,8 +11,9 @@ class _AnalisiEditState extends State<AnalisiEdit> {
   final _nomeAn = TextEditingController();
   String categoria = null;
   final _nuovaCat = TextEditingController();
-
+  String _id = DateTime.now().toString();
   final _noteController = TextEditingController();
+
   final categList = (anList.keys.map((e) => e.toString()).toList() + [
     'Analisi del sangue',
     'Analisi colesterolo',
@@ -143,7 +144,18 @@ class _AnalisiEditState extends State<AnalisiEdit> {
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
     final Function onItemTapped = arguments['routeFunction'];
+    
+    if(arguments['edit']!= null){
+      Analisi doc = arguments['edit'];
+      _id = doc.id;
 
+      _nomeAn.value =  new TextEditingController.fromValue(
+                new TextEditingValue(text: doc.titolo.toString()))
+            .value;
+      _noteController.value = new TextEditingController.fromValue(
+                new TextEditingValue(text: doc.note.toString()))
+            .value;
+    }
     return Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.white),
@@ -316,14 +328,20 @@ class _AnalisiEditState extends State<AnalisiEdit> {
               // Find the Scaffold in the widget tree and use it to show a SnackBar.
               scaffold.showSnackBar(snackBar);
             } else {
-              onItemTapped(8);
+              if(arguments['routeFunction'] != null){
+                onItemTapped(8);
+              } else {
+                anList[categoria].removeWhere((item) => item.id == _id);
+                Navigator.of(context).pop();
+              }
+
               if( anList[categoria] == null){
                 anList[categoria] = [];
               }
               anList[categoria] = anList[categoria] +
                   [
                     Analisi(
-                        id: DateTime.now().toString(),
+                        id: _id,
                         titolo: _nomeAn.text.toString(),
                         note: _noteController.text.toString())
                   ];

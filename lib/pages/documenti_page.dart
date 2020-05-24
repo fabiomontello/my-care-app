@@ -48,15 +48,16 @@ class _DocumentiPageState extends State<DocumentiPage> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                Container(
-                  // padding: EdgeInsets.only(left:20),
-                  child: Text(
-                    'Foto/Video',
+                ListTile(
+                  dense: true,
+                  title: Text(
+                    'Foto e video',
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 24,
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
+                      color: Color(0xffBE1622),
                     ),
                   ),
                 ),
@@ -67,14 +68,15 @@ class _DocumentiPageState extends State<DocumentiPage> {
                           child: ListTile(
                             onTap: () {
                               Navigator.of(context).pushNamed(
-                                '/medicinale/view',
-                                arguments: {'object': elem},
+                                '/documenti/view',
+                                arguments: {
+                                  'object': elem,
+                                  'fun': () {
+                                    setState(() {});
+                                  }
+                                },
                               );
                             },
-                            leading: Icon(
-                              Icons.fiber_manual_record,
-                              color: _docIcons(elem.tipoDoc),
-                            ),
                             title: Text(
                               elem.title,
                               style: TextStyle(
@@ -84,23 +86,18 @@ class _DocumentiPageState extends State<DocumentiPage> {
                             ),
                           ),
                         )
-                      // (condition) ? something happened : something elese
-//                if (condition) {
-// something happend
-//                }
-//                else {
-//                  something else
-//                }
                       : SizedBox.shrink();
                 }).toList(),
-                Container(
-                  child: Text(
+                ListTile(
+                  dense: true,
+                  title: Text(
                     'Audio',
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 24,
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
+                      color: Color(0xffBE1622),
                     ),
                   ),
                 ),
@@ -111,14 +108,15 @@ class _DocumentiPageState extends State<DocumentiPage> {
                           child: ListTile(
                             onTap: () {
                               Navigator.of(context).pushNamed(
-                                '/medicinale/view',
-                                arguments: {'object': elem},
+                                '/documenti/view',
+                                arguments: {
+                                  'object': elem,
+                                  'fun': () {
+                                    setState(() {});
+                                  }
+                                },
                               );
                             },
-                            leading: Icon(
-                              Icons.fiber_manual_record,
-                              color: _docIcons(elem.tipoDoc),
-                            ),
                             title: Text(
                               elem.title,
                               style: TextStyle(
@@ -130,15 +128,16 @@ class _DocumentiPageState extends State<DocumentiPage> {
                         )
                       : SizedBox.shrink();
                 }).toList(),
-                Container(
-                  // margin: EdgeInsets.only(bottom:),
-                  child: Text(
+                ListTile(
+                  dense: true,
+                  title: Text(
                     'Documenti',
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 24,
                       fontFamily: 'Ubuntu',
                       fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
+                      color: Color(0xffBE1622),
                     ),
                   ),
                 ),
@@ -148,14 +147,15 @@ class _DocumentiPageState extends State<DocumentiPage> {
                           child: ListTile(
                             onTap: () {
                               Navigator.of(context).pushNamed(
-                                '/medicinale/view',
-                                arguments: {'object': elem},
+                                '/documenti/view',
+                                arguments: {
+                                  'object': elem,
+                                  'fun': () {
+                                    setState(() {});
+                                  }
+                                },
                               );
                             },
-                            leading: Icon(
-                              Icons.fiber_manual_record,
-                              color: _docIcons(elem.tipoDoc),
-                            ),
                             title: Text(
                               elem.title,
                               style: TextStyle(

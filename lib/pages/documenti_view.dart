@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
-import '../models/analisi.dart';
+import '../models/documenti.dart';
 import '../ui/red_separator.dart';
-import './analisi_page.dart';
+import './documenti_page.dart';
 
-class AnalisiView extends StatelessWidget {
+class DocumentiView extends StatelessWidget {
+  _docType(val) {
+    switch (val) {
+      case TipoDoc.fotoVideo:
+        return 'alla foto / al video';
+      case TipoDoc.documento:
+        return 'al documento';
+      case TipoDoc.audio:
+        return 'all\'audio';
+    }
+    return 'al documento';
+  }
+
   @override
   Widget build(BuildContext context) {
     final argum = ModalRoute.of(context).settings.arguments as Map;
-    Analisi med = argum['object'];
+    Documenti med = argum['object'];
 
     return Scaffold(
       appBar: AppBar(
@@ -28,7 +40,7 @@ class AnalisiView extends StatelessWidget {
             Container(
               child: ListTile(
                 title: Text(
-                  med.titolo,
+                  med.title,
                   style: TextStyle(
                     fontFamily: 'Ubuntu',
                     fontSize: 22,
@@ -46,7 +58,7 @@ class AnalisiView extends StatelessWidget {
                     borderRadius: new BorderRadius.circular(60.0)),
                 onPressed: () {},
                 child: Text(
-                  'Visualizza il documento',
+                  'Vai ' + _docType(med.tipoDoc),
                   style: TextStyle(
                     color: Colors.white,
                     fontFamily: 'Ubuntu',
@@ -89,9 +101,9 @@ class AnalisiView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   IconButton(
-                    onPressed: (){
-                      Navigator.of(context).pushNamed('/analisi/edit',
-                            arguments: {'edit': med});
+                    onPressed: () {
+                      Navigator.of(context).pushNamed('/documento/edit',
+                          arguments: {'edit': med});
                     },
                     icon: Icon(
                       Icons.edit,
@@ -107,7 +119,7 @@ class AnalisiView extends StatelessWidget {
                       ),
                       onPressed: (){
                         argum['fun']();
-                        anList[argum['cat']].removeWhere((element) => element.id == med.id);
+                        docuList.removeWhere((element) => element.id == med.id);
                         Navigator.of(context).pop();
                       })
                 ],
@@ -122,7 +134,9 @@ class AnalisiView extends StatelessWidget {
             Icons.add,
             size: 40,
           ),
-          onPressed: () {Navigator.of(context).pushNamed('/analisi/edit');}),
+          onPressed: () {
+            Navigator.of(context).pushNamed('/documento/edit');
+          }),
     );
   }
 }

@@ -8,6 +8,7 @@ class DocumentoEdit extends StatefulWidget {
 }
 
 class _DocumentoEditState extends State<DocumentoEdit> {
+  String _id = DateTime.now().toString();
   final _nomeDoc = TextEditingController();
   TipoDoc _tipoDoc = TipoDoc.documento;
   final _noteController = TextEditingController();
@@ -27,6 +28,18 @@ class _DocumentoEditState extends State<DocumentoEdit> {
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
     final Function onItemTapped = arguments['routeFunction'];
+    if (arguments['edit'] != null) {
+      Documenti doc = arguments['edit'];
+      _id = doc.id;
+      _tipoDoc = doc.tipoDoc;
+      _nomeDoc.value = new TextEditingController.fromValue(
+                new TextEditingValue(text: doc.title.toString()))
+            .value;
+      _noteController.value = new TextEditingController.fromValue(
+                new TextEditingValue(text: doc.note.toString()))
+            .value;
+    }
+    
     return Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.white),
@@ -289,10 +302,15 @@ class _DocumentoEditState extends State<DocumentoEdit> {
               // Find the Scaffold in the widget tree and use it to show a SnackBar.
               scaffold.showSnackBar(snackBar);
             } else {
-              onItemTapped(7);
+              if(arguments['routeFunction'] != null){
+                onItemTapped(7);
+              } else {
+                Navigator.of(context).pop();
+              }
               Navigator.of(context).pop();
+              docuList.removeWhere((item) => item.id == _id);
               docuList.add(Documenti(
-                  id: DateTime.now().toString(),
+                  id: _id,
                   title: _nomeDoc.text,
                   tipoDoc: _tipoDoc,
                   note: _noteController.text));

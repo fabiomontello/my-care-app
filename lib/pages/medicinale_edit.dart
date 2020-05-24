@@ -33,6 +33,7 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
   final scorteQuantita = TextEditingController();
   bool scorteAlert = false;
   final _note = TextEditingController();
+  String _id = DateTime.now().toString();
 
   _editAllFunc(freq, startDayDate, dOfWeekList, timelist) {
     setState(() {
@@ -60,7 +61,39 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
     final _controller = new PageController();
     const _kDuration = const Duration(milliseconds: 300);
     const _kCurve = Curves.ease;
+    final Map arguments = ModalRoute.of(context).settings.arguments as Map;
 
+    if(arguments != null){
+      if (arguments['edit'] != null) {
+        Medicinale med = arguments['edit'];
+
+        _promemoria = med.promemoria;
+        dropdownValue = med.icon;
+        _nomeMed.value = new TextEditingController.fromValue(
+                new TextEditingValue(text: med.title))
+            .value;
+        _frequency = med.frequency;
+        timesList = med.promemoriaList;
+        startDate = med.startDate;
+        dOfWeek = med.dOfWeek;
+        applicazione = med.applicazione;
+        applicazioneDose.value = new TextEditingController.fromValue(
+                new TextEditingValue(text: med.applicazioneDose.toString()))
+            .value;
+        applicazioneDurata.value = new TextEditingController.fromValue(
+                new TextEditingValue(text: med.applicazioneDurata.toString()))
+            .value;
+        scorte = med.scorte;
+        scorteQuantita.value = new TextEditingController.fromValue(
+                new TextEditingValue(text: med.scorteQuantita.toString()))
+            .value;
+        scorteAlert = med.scorteAlert;
+        _note.value = new TextEditingController.fromValue(
+                new TextEditingValue(text: med.note.toString()))
+            .value;
+        _id = med.id;
+      }
+    }
     List<Widget> _samplePages = [
       Container(
         height: double.infinity,
@@ -614,7 +647,7 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                                 'object': new Medicinale(
                                     frequency: _frequency,
                                     icon: dropdownValue,
-                                    id: DateTime.now().toString(),
+                                    id: _id,
                                     promemoria: _promemoria,
                                     title: _nomeMed.text.toString(),
                                     promemoriaList: timesList,

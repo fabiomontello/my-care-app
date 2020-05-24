@@ -75,6 +75,25 @@ class _AppuntamentoEditState extends State<AppuntamentoEdit> {
 
   @override
   Widget build(BuildContext context) {
+    final Map arguments = ModalRoute.of(context).settings.arguments as Map;
+
+    if (arguments != null) {
+      if (arguments['edit'] != null) {
+        Appuntamenti med = arguments['edit'];
+
+        _promemoria = med.promemoria;
+        dropdownValue = med.tipo;
+        _nomeApp.value = new TextEditingController.fromValue(
+                new TextEditingValue(text: med.title))
+            .value;
+        _noteController.value = new TextEditingController.fromValue(
+                new TextEditingValue(text: med.note))
+            .value;
+        dataAppuntamento = med.date;
+        _alertBefore = med.promemoriaTime;
+        ripetiApp = med.repeatAppointment;
+      }
+    }
     return Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.white),
