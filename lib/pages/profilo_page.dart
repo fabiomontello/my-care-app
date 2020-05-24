@@ -23,7 +23,6 @@ class _ProfiloPageState extends State<ProfiloPage> {
   final _userCognome = TextEditingController(text: info.cognome);
   final _userData = TextEditingController(text:DateFormat('dd/MM/yyyy').format(info.data));
   File _image;
-  bool _check;
 
   Future getPhoto() async {
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
@@ -187,12 +186,24 @@ class _ProfiloPageState extends State<ProfiloPage> {
                     final scaffold = Scaffold.of(context);
                     // Find the Scaffold in the widget tree and use it to show a SnackBar.
                     scaffold.showSnackBar(snackBar);
-                  } else {
+                  } else if(_userId.text.contains(" ")){
+                    final snackBar = SnackBar(
+                      content: Text('Il nome utente non deve contentere spazi.'),
+                      backgroundColor: Color(0xffBE1622),
+                      duration: Duration(seconds: 3),
+                    );
+                    //Navigator.of(context).pushReplacementNamed('/home');
+                    final scaffold = Scaffold.of(context);
+                    // Find the Scaffold in the widget tree and use it to show a SnackBar.
+                    scaffold.showSnackBar(snackBar);
+                    
+                  }else {
                     info.id = _userId.text.toString();
                     info.nome=_userNome.text.toString();
                     info.cognome=_userCognome.text.toString();
                     info.data = DateFormat("dd/MM/yyyy").parse(_userData.text.toString());
                     Navigator.pushNamed(context, '/home');
+
                   }
                 },
                 child: Text(

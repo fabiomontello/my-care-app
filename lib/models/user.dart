@@ -7,6 +7,8 @@ class User {
   String cognome;
   DateTime data;
   String img;
+  String pw;
+  String email;
 
   User({
     @required this.idUser,
@@ -14,7 +16,9 @@ class User {
     this.nome,
     this.cognome,
     this.data,
-    this.img
+    this.img,
+    this.pw,
+    this.email
   });
 
 }
