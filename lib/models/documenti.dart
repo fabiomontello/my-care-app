@@ -7,11 +7,13 @@ class Documenti {
   final String title;
   final TipoDoc tipoDoc;
   final String note;
+  String doc;
   //https://pub.dev/packages/file_picker
 
   Documenti({@required this.id, 
             @required this.title, 
             @required this.tipoDoc,
-            @required this.note});
+            @required this.note,
+            @required this.doc
+  });
 }
-//bilu

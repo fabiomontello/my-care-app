@@ -1,3 +1,4 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import '../models/analisi.dart';
 import './analisi_page.dart';
@@ -18,6 +19,16 @@ class _AnalisiEditState extends State<AnalisiEdit> {
     'Analisi del sangue',
     'Analisi colesterolo',
   ]).toSet().toList();
+
+  String _path;
+
+  Future getPath() async {
+    var filePath = await FilePicker.getFilePath(type: FileType.any);
+
+    setState(() {
+      _path = filePath;
+    });
+  }
 
   void startAddButton(BuildContext ctx) {
     Navigator.of(ctx).pop();
@@ -44,7 +55,7 @@ class _AnalisiEditState extends State<AnalisiEdit> {
                     expands: false,
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      hintText: "Titolo analisi",
+                      hintText: "Nuova categoria",
                       fillColor: Color(0xffBE1622),
                       hintStyle: TextStyle(
                         color: Color(0xffBE1622),
@@ -274,7 +285,9 @@ class _AnalisiEditState extends State<AnalisiEdit> {
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(60.0)),
-                  onPressed: () {},
+                  onPressed: () {
+                    getPath();
+                  },
                   child: Text(
                     'Aggiungi il tuo file',
                     style: TextStyle(
@@ -343,7 +356,8 @@ class _AnalisiEditState extends State<AnalisiEdit> {
                     Analisi(
                         id: _id,
                         titolo: _nomeAn.text.toString(),
-                        note: _noteController.text.toString())
+                        note: _noteController.text.toString(),
+                        docAnal: _path)
                   ];
               Navigator.of(context).pop();
               // docuList.add(Documenti(

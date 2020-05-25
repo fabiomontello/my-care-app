@@ -23,7 +23,7 @@ class _ProfiloPageState extends State<ProfiloPage> {
   final _userCognome = TextEditingController(text: info.cognome);
   final _userData = TextEditingController(text:DateFormat('dd/MM/yyyy').format(info.data));
   File _image;
-  bool _check;
+  String pathImg = info.img;
 
   Future getPhoto() async {
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
@@ -40,9 +40,20 @@ class _ProfiloPageState extends State<ProfiloPage> {
       _image = image;
     });
   }
+
+  Future copyImg() async {
+    final File newImage = await _image.copy('/assets/img.png');
+
+    setState(() {
+      _image = newImage;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Container(
           width: 50,
@@ -59,7 +70,7 @@ class _ProfiloPageState extends State<ProfiloPage> {
             ClipRRect(
               borderRadius: BorderRadius.circular(60),
               child: Image.asset(
-                info.img,
+                pathImg,
                 width: 120.0,
                 height: 120.0,
                 fit: BoxFit.cover,
@@ -71,56 +82,59 @@ class _ProfiloPageState extends State<ProfiloPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(
-                    onPressed: (){
-                      getImg();
-                      if(_image.path != null){
-                        _image.copy('assets/images/img.png');
-                        info.img = 'assets/images/img.png';
-                      }else{
-                        final snackBar = SnackBar(
-
-                          content: Text('Non é stato possibile caricare la foto.'),
-                          backgroundColor: Color(0xffBE1622),
-                          duration: Duration(seconds: 3),
-                        );
-                        //Navigator.of(context).pushReplacementNamed('/home');
-                        final scaffold = Scaffold.of(context);
-                        // Find the Scaffold in the widget tree and use it to show a SnackBar.
-                        scaffold.showSnackBar(snackBar);
-                      }
-                    },
-                    icon: Icon(
-                      Icons.photo_library,
-                      color: Color(0xffBE1622),
-                      size: 20,
-                    ),
-                  ),
-
-                  IconButton(
-                      icon: Icon(
-                        Icons.photo_camera,
-                        color: Color(0xffBE1622),
-                        size: 20,
-                      ),
-                      onPressed:() {
-                        getPhoto();
-                        if(_image.path != null){
-                          _image.copy('assets/images/img.png');
-                          info.img = 'assets/images/img.png';
-                        }else{
+                  Builder(
+                    builder: (context) => IconButton(
+                      onPressed: (){
+                        getImg();
+                        //copyImg();
+                        if (_image == null  ) {
                           final snackBar = SnackBar(
-
-                            content: Text('Non é stato possibile caricare la foto.'),
+                            content: Text('Operazione fallita'),
                             backgroundColor: Color(0xffBE1622),
-                            duration: Duration(seconds: 3),
+                            duration: Duration(seconds: 5),
                           );
                           //Navigator.of(context).pushReplacementNamed('/home');
                           final scaffold = Scaffold.of(context);
                           // Find the Scaffold in the widget tree and use it to show a SnackBar.
                           scaffold.showSnackBar(snackBar);
-                        }
-                      })
+                        } else{
+                          pathImg =  _image.path;
+                      };},
+                      icon: Icon(
+                        Icons.photo_library,
+                        color: Color(0xffBE1622),
+                        size: 20,
+                      ),
+                    ),
+                  ),
+
+
+                  Builder(
+                    builder: (context) => IconButton(
+                      onPressed: (){
+                        getPhoto();
+                        //copyImg();
+                        if (_image == null) {
+                          final snackBar = SnackBar(
+                            content: Text('Operazione fallita'),
+                            backgroundColor: Color(0xffBE1622),
+                            duration: Duration(seconds: 5),
+                          );
+                          //Navigator.of(context).pushReplacementNamed('/home');
+                          final scaffold = Scaffold.of(context);
+                          // Find the Scaffold in the widget tree and use it to show a SnackBar.
+                          scaffold.showSnackBar(snackBar);
+                        } else{
+                          pathImg =  _image.path;
+                        };},
+                      icon: Icon(
+                        Icons.photo_camera,
+                        color: Color(0xffBE1622),
+                        size: 20,
+                      ),
+                    ),
+                  ),
+
                 ],
               ),
             ),
@@ -187,12 +201,25 @@ class _ProfiloPageState extends State<ProfiloPage> {
                     final scaffold = Scaffold.of(context);
                     // Find the Scaffold in the widget tree and use it to show a SnackBar.
                     scaffold.showSnackBar(snackBar);
-                  } else {
+                  } else if(_userId.text.contains(" ")){
+                    final snackBar = SnackBar(
+                      content: Text('Il nome utente non deve contentere spazi.'),
+                      backgroundColor: Color(0xffBE1622),
+                      duration: Duration(seconds: 3),
+                    );
+                    //Navigator.of(context).pushReplacementNamed('/home');
+                    final scaffold = Scaffold.of(context);
+                    // Find the Scaffold in the widget tree and use it to show a SnackBar.
+                    scaffold.showSnackBar(snackBar);
+                    
+                  }else {
                     info.id = _userId.text.toString();
                     info.nome=_userNome.text.toString();
                     info.cognome=_userCognome.text.toString();
                     info.data = DateFormat("dd/MM/yyyy").parse(_userData.text.toString());
+                    info.img = _image.path;
                     Navigator.pushNamed(context, '/home');
+
                   }
                 },
                 child: Text(

@@ -1,3 +1,4 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import '../models/documenti.dart';
 import './documenti_page.dart';
@@ -24,6 +25,16 @@ class _DocumentoEditState extends State<DocumentoEdit> {
     return Colors.white;
   }
 
+  String _path;
+
+  Future getPath() async {
+    var filePath = await FilePicker.getFilePath(type: FileType.any);
+
+    setState(() {
+      _path = filePath;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
@@ -41,6 +52,7 @@ class _DocumentoEditState extends State<DocumentoEdit> {
     }
     
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.white),
         title: Text(
@@ -116,7 +128,9 @@ class _DocumentoEditState extends State<DocumentoEdit> {
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(60.0)),
-                  onPressed: () {},
+                  onPressed: () {
+                    getPath();
+                  },
                   child: Text(
                     'Aggiungi il tuo file',
                     style: TextStyle(
@@ -313,7 +327,8 @@ class _DocumentoEditState extends State<DocumentoEdit> {
                   id: _id,
                   title: _nomeDoc.text,
                   tipoDoc: _tipoDoc,
-                  note: _noteController.text));
+                  note: _noteController.text,
+                  doc: _path));
               // Navigator.of(context).pushReplacementNamed('/home', arguments: {
               //   'type': 'documento',
               //   'object': new Documenti(

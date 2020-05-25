@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:open_file/open_file.dart';
 import '../models/documenti.dart';
 import '../ui/red_separator.dart';
 import './documenti_page.dart';
@@ -56,7 +57,9 @@ class DocumentiView extends StatelessWidget {
               child: RaisedButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(60.0)),
-                onPressed: () {},
+                onPressed: () {
+                  OpenFile.open(med.doc);
+                },
                 child: Text(
                   'Vai ' + _docType(med.tipoDoc),
                   style: TextStyle(

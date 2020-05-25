@@ -74,7 +74,24 @@ class _AppuntamentiViewState extends State<AppuntamentiView> {
               ),
             );
           }).toList(),
-        ],
+
+            appuntamentiList.length == 0
+            ? Container(
+            margin: EdgeInsets.only(bottom: 15),
+            child: ListTile(
+            title: Text(
+            'Non hai ancora inserito nessun appuntamento',
+            style: TextStyle(
+            fontSize: 18,
+            fontFamily: 'Ubuntu',
+            fontWeight: FontWeight.normal,
+            color: Colors.black,
+            ),
+            ),
+            ),
+            )
+                : SizedBox.shrink(),
+                  ],
       ),
     ),
     TableCalendar(
