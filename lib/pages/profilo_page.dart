@@ -61,7 +61,9 @@ class _ProfiloPageState extends State<ProfiloPage> {
         ),
         iconTheme: new IconThemeData(color: Colors.white),
       ),
-      body: Container(
+      body:
+      SingleChildScrollView(
+      child: Container(
         padding: EdgeInsets.fromLTRB(18, 25, 18, 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -233,6 +235,7 @@ class _ProfiloPageState extends State<ProfiloPage> {
             ),
           ],
         ),
+      ),
       ),
     );
   }
