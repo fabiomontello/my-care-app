@@ -217,7 +217,7 @@ class NotificationList extends StatelessWidget {
                 notifListNext.length == 0
                     ? ListTile(
                         title: Text(
-                          'Non hai ancora inserito nessun appuntamento',
+                          'Nessuna notifica presente',
                           style: TextStyle(
                             fontSize: 18,
                             fontFamily: 'Ubuntu',
@@ -280,7 +280,7 @@ class NotificationList extends StatelessWidget {
                 notifListBef.length == 0
                     ? ListTile(
                         title: Text(
-                          'Non hai ancora inserito nessun appuntamento',
+                          'Nessuna notifica presente',
                           style: TextStyle(
                             fontSize: 18,
                             fontFamily: 'Ubuntu',
