@@ -63,23 +63,7 @@ class _AnalisiPageState extends State<AnalisiPage> {
                                 )
                               : null,
                         ),
-                      )).toList(),
-                      anList[e].length == 0
-                          ? Container(
-                        margin: EdgeInsets.only(bottom: 15),
-                        child: ListTile(
-                          title: Text(
-                            'Non hai ancora inserito nessun analisi di questa categoria',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: 'Ubuntu',
-                              fontWeight: FontWeight.normal,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                      )
-                          : SizedBox.shrink(),
+                      ))
                 ])
               ],
             ))

@@ -38,12 +38,9 @@ _docType(val) {
   return 'documento';
 }
 
-
 class _DocumentiPageState extends State<DocumentiPage> {
-
   @override
   Widget build(BuildContext context) {
-
     return Column(
       children: [
         Container(
@@ -91,22 +88,6 @@ class _DocumentiPageState extends State<DocumentiPage> {
                         )
                       : SizedBox.shrink();
                 }).toList(),
-                  (docuList.where((elem) => elem.tipoDoc == TipoDoc.fotoVideo)).toList().length == 0
-                  ? Container(
-                  margin: EdgeInsets.only(bottom: 15),
-                  child: ListTile(
-                    title: Text(
-                      'Non hai ancora inserito foto o video',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                )
-                    : SizedBox.shrink(),
                 ListTile(
                   dense: true,
                   title: Text(
@@ -147,22 +128,6 @@ class _DocumentiPageState extends State<DocumentiPage> {
                         )
                       : SizedBox.shrink();
                 }).toList(),
-                (docuList.where((elem) => elem.tipoDoc == TipoDoc.audio)).toList().length == 0
-                    ? Container(
-                  margin: EdgeInsets.only(bottom: 15),
-                  child: ListTile(
-                    title: Text(
-                      'Non hai ancora inserito nessun audio',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                )
-                    : SizedBox.shrink(),
                 ListTile(
                   dense: true,
                   title: Text(
@@ -202,23 +167,7 @@ class _DocumentiPageState extends State<DocumentiPage> {
                           ),
                         )
                       : SizedBox.shrink();
-                }).toList(),
-                (docuList.where((elem) => elem.tipoDoc == TipoDoc.documento)).toList().length == 0
-                    ? Container(
-                  margin: EdgeInsets.only(bottom: 15),
-                  child: ListTile(
-                    title: Text(
-                      'Non hai ancora inserito nessun documento',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: 'Ubuntu',
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                )
-                    : SizedBox.shrink(),
+                }).toList()
               ],
             ),
           ),
