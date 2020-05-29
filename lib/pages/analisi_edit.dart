@@ -45,7 +45,7 @@ class _AnalisiEditState extends State<AnalisiEdit> {
                 bottom: MediaQuery.of(context).viewInsets.bottom),
             child: Container(
               padding: EdgeInsets.fromLTRB(15, 40, 15, 5),
-              height: 200,
+              height: 230,
               color: Colors.white,
               child: Column(
                 children: <Widget>[

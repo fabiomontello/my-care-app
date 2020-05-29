@@ -8,6 +8,7 @@ import 'appuntamenti_view.dart';
 import 'analisi_page.dart';
 import 'documenti_page.dart';
 import 'notification_list.dart';
+import 'impostazioni_page.dart';
 
 
 class HomeSwitcher extends StatelessWidget {
@@ -47,6 +48,9 @@ class HomeSwitcher extends StatelessWidget {
         break;
       case 9:
         child = ProfiloPage();
+        break;
+      case 10:
+        child = ImpostazioniPage();
         break;
       default:
     }

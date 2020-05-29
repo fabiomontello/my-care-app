@@ -63,7 +63,7 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
     const _kCurve = Curves.ease;
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
 
-    if(arguments != null){
+    if (arguments != null) {
       if (arguments['edit'] != null) {
         Medicinale med = arguments['edit'];
 
@@ -201,8 +201,12 @@ class _MedicinaleEditState extends State<MedicinaleEdit> {
                   ? InkWell(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) =>
-                                MedicinaleEditFreq(_editAllFunc)));
+                            builder: (context) => MedicinaleEditFreq(
+                                _editAllFunc,
+                                startDate,
+                                _frequency,
+                                timesList,
+                                dOfWeek)));
                       },
                       child: Container(
                         decoration: BoxDecoration(

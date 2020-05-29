@@ -4,24 +4,41 @@ import 'package:intl/intl.dart';
 
 class MedicinaleEditFreq extends StatefulWidget {
   final Function editallFunc;
+  final DateTime da;
+  final int f;
+  final List tl;
+  final List wc;
 
-  MedicinaleEditFreq(this.editallFunc);
+  MedicinaleEditFreq(this.editallFunc, [this.da, this.f, this.tl, this.wc]);
 
   @override
   _MedicinaleEditFreqState createState() =>
-      _MedicinaleEditFreqState(editallFunc);
+      _MedicinaleEditFreqState(editallFunc, this.da, this.f, this.tl, this.wc);
 }
 
 class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
   final Function editallFunc;
-  _MedicinaleEditFreqState(this.editallFunc);
+  final DateTime da;
+  final int f;
+  final List tl;
+  final List wc;
+
   DateTime dataAppuntamento = DateTime.now();
   int frequency = 1;
   List<TimeOfDay> timesList = [
     TimeOfDay.fromDateTime(DateFormat.Hm().parse('00:00'))
   ];
   List<bool> weekCheck = [true, true, true, true, true, true, true];
+
   bool allNone = true;
+
+  _MedicinaleEditFreqState(
+      this.editallFunc, this.da, this.f, this.tl, this.wc) {
+    dataAppuntamento = da == null ? dataAppuntamento : da;
+    frequency = f == null ? frequency : f;
+    timesList = tl == null ? timesList : tl;
+    weekCheck = (wc == null || wc == []) ? weekCheck : wc;
+  }
 
   void _addFrequency() {
     if (frequency < 4) {
@@ -60,6 +77,7 @@ class _MedicinaleEditFreqState extends State<MedicinaleEditFreq> {
 
   @override
   Widget build(BuildContext context) {
+    // print('yeah');
     return Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.white),

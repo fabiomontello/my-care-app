@@ -27,7 +27,7 @@ class MyCareDrawer extends StatelessWidget {
               ),
             ),
             DrawerListSeparator(),
-            DrawerListElem('Impostazioni', pageHandler),
+            DrawerListElem('Impostazioni', pageHandler,10),
             DrawerListSeparator(),
             DrawerListElem('Medicinali', pageHandler, 5),
             DrawerListElem('Appuntamenti', pageHandler, 6),
