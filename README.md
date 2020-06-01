@@ -1,22 +1,18 @@
+![My care showcase](/doc/final.png)
+
 # My Care app
 
-A new Flutter project. Work in progress...
+Nowadays, the term ‘innovation’ in healthcare become associated with new developments in the field that allow for improvements in solving problems, in this instance, healthcare problems. It is essential that healthcare organizations - including hospitals and healthcare systems, payment and life sciences companies - keep up with technological innovations.
 
-Made with 💖 exclsively by Sandra 😘
+Furthermore, in today's society, the life becomes increasingly hectic, not leaving moments of pure tranquility. The free time is less and less due to work commitments and not only. Mainly for this reason, many people tend to overlook factors that are very important, such as their health.
 
-Fabio did absolutely fucking nothing.
-Go to cook Fabio!
-Now, I'm fucking starving for fuck's sake, do we always have to come down to write this stuff on a github markdown in order to stupid who is reading this, I mean youuuuu.
+The idea is to develop an application wants to deals the problems shown above and able to design a better quality of life for patients. Indeed this project is a mobile application called “My Care” that provides people with several services, trying to offer users a solid help to manage all the aspects of their health.
 
-## Getting Started
+## Introduction
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The main goal of "My Care" is to place itself between medical professionals and patients. This application must be a support to improve the management of the people’s health.
+“My Care” offers users the different services, some of them are the following:
+• they will be able to organize their appointments and visits with the doctors, using reminder notifications;
+• they will be able to enable an alarm to remind them of drug delivery;
+• they will be able to store pictures, audio recordings, texts, keeping track of their documents and analysis;
+• they will be able to find the closest pharmacy, using the geo-localization option.
