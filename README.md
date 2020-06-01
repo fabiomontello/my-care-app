@@ -1,6 +1,7 @@
+# My Care app
 ![My care showcase](/doc/final.png)
 
-# My Care app
+## Abstract
 
 Nowadays, the term ‘innovation’ in healthcare become associated with new developments in the field that allow for improvements in solving problems, in this instance, healthcare problems. It is essential that healthcare organizations - including hospitals and healthcare systems, payment and life sciences companies - keep up with technological innovations.
 
