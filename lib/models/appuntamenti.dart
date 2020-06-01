@@ -38,3 +38,4 @@ class Appuntamenti {
     @required this.note
   });
 }
+

@@ -28,17 +28,6 @@ class _MedicinaliViewState extends State<MedicinaliView> {
     }
     return '';
   }
-  IconData _medIcons(val) {
-    switch (val) {
-      case TipoMedicinale.compresse:
-        return FontAwesomeIcons.pills;
-      case TipoMedicinale.goccie:
-        return FontAwesomeIcons.tint;
-      case TipoMedicinale.pillole:
-        return FontAwesomeIcons.tablets;
-    }
-    return FontAwesomeIcons.pills;
-  }
 
   Widget build(BuildContext context) {
     final argum = ModalRoute.of(context).settings.arguments as Map;
@@ -62,7 +51,7 @@ class _MedicinaliViewState extends State<MedicinaliView> {
             Container(
               child: ListTile(
                 trailing: Icon(
-                  _medIcons(med.icon),
+                  FontAwesomeIcons.pills,
                   color: Theme.of(context).primaryColor,
                 ),
                 title: Text(

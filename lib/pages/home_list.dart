@@ -6,26 +6,26 @@ import 'package:intl/intl.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 List<Medicinale> medList = [
-  Medicinale(
-      id: '1 every minute',
-      title: 'Buscopan',
-      icon: TipoMedicinale.compresse,
-      promemoria: true,
-      frequency: 3,
-      promemoriaList: [
-        TimeOfDay.fromDateTime(DateTime.now()),
-        TimeOfDay.fromDateTime(DateTime.now()),
-        TimeOfDay.fromDateTime(DateTime.now())
-      ],
-      startDate: DateTime.now(),
-      dOfWeek: [true, true, true, true, true, true, true],
-      applicazione: true,
-      applicazioneDose: 5,
-      applicazioneDurata: 10,
-      scorte: true,
-      scorteQuantita: 50,
-      scorteAlert: true,
-      note: ''),
+  // Medicinale(
+  //     id: '1 every minute',
+  //     title: 'Buscopan',
+  //     icon: TipoMedicinale.compresse,
+  //     promemoria: true,
+  //     frequency: 3,
+  //     promemoriaList: [
+  //       TimeOfDay.fromDateTime(DateTime.now()),
+  //       TimeOfDay.fromDateTime(DateTime.now()),
+  //       TimeOfDay.fromDateTime(DateTime.now())
+  //     ],
+  //     startDate: DateTime.now(),
+  //     dOfWeek: [true, true, true, true, true, true, true],
+  //     applicazione: true,
+  //     applicazioneDose: 5,
+  //     applicazioneDurata: 10,
+  //     scorte: true,
+  //     scorteQuantita: 50,
+  //     scorteAlert: true,
+  //     note: ''),
 ];
 
 List<Appuntamenti> appuntamentiList = [

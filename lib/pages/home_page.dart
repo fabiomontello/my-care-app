@@ -42,15 +42,17 @@ class _MyHomePageState extends State<MyHomePage> {
             onTap: () {
             Navigator.pushNamed(context, '/profilo/page');},
 
-            child: ClipRRect(
+            child: Container(
+              margin: EdgeInsets.all(5),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(60),
+                  child: Image.asset(
+                    info.img,
+                    width: 50.0,
+                    height: 50.0,
+                    fit: BoxFit.cover,
 
-                borderRadius: BorderRadius.circular(60),
-                child: Image.asset(
-                  info.img,
-                  width: 50.0,
-                  height: 50.0,
-                  fit: BoxFit.cover,
-
+                ),
               ),
             ),
           ),
@@ -70,6 +72,8 @@ User info  = User(
     nome: 'Valentino',
     cognome: 'Visentin',
     data: DateTime(1968,03,21),
-    img: "assets/images/Brad_Pitt.jpg"
+    img: "assets/images/Brad_Pitt.jpg",
+    pw: 'password',
+    email: 'vale68@gmail.com'
 
 );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_care/pages/impostazioni_page.dart';
 import 'package:my_care/pages/profilo_page.dart';
 import 'package:my_care/pages/smart_devices.dart';
 import 'home_list.dart';

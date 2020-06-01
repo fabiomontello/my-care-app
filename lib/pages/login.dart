@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../logos/logos.dart';
 import 'home_page.dart';
-import '../models/user.dart';
 
 class LoginPage extends StatelessWidget {
 
@@ -52,7 +51,8 @@ class LoginPage extends StatelessWidget {
                       final scaffold = Scaffold.of(context);
                       // Find the Scaffold in the widget tree and use it to show a SnackBar.
                       scaffold.showSnackBar(snackBar);
-                    } else if(_userPw.text != info.pw || _userEmail.text!=info.email){
+                    } else if(_userPw
+                        .text != info.pw || _userEmail.text!=info.email){
                       final snackBar = SnackBar(
                         content: Text('Attenzione! Le credenziali inserite sono errate.'),
                         backgroundColor: Color(0xffBE1622),

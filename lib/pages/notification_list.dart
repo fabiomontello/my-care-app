@@ -181,26 +181,26 @@ class NotificationList extends StatelessWidget {
                   return Container(
                     child: ListTile(
                       onTap: () {
-                        Navigator.of(context).pushNamed('/medicinale/view',
-                            arguments: {'object': elem});
+                        // Navigator.of(context).pushNamed('/medicinale/view',
+                        //     arguments: {'object': elem});
                       },
                       leading: elem.icona,
-                      title: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
                             elem.titolo,
                             style: TextStyle(
                               fontFamily: 'Ubuntu',
                               fontWeight: FontWeight.bold,
-                              fontSize: 16,
+                              fontSize: 20,
                             ),
                           ),
                           Text(elem.oradata,
                               style: TextStyle(
                                 fontFamily: 'Ubuntu',
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
+                                fontWeight: FontWeight.normal,
+                                fontSize: 16,
                               ))
                         ],
                       ),
@@ -244,8 +244,8 @@ class NotificationList extends StatelessWidget {
                   return Container(
                     child: ListTile(
                       onTap: () {
-                        Navigator.of(context).pushNamed('/medicinale/view',
-                            arguments: {'object': elem});
+                        // Navigator.of(context).pushNamed('/medicinale/view',
+                        //     arguments: {'object': elem});
                       },
                       leading: elem.icona,
                       title: Row(

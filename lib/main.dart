@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_care/pages/impostazioni_page.dart';
 import 'package:my_care/pages/medicinali_view.dart';
 import 'package:my_care/pages/profilo_page.dart';
 import './pages/documento_edit.dart';
@@ -9,8 +10,12 @@ import './pages/medicinale_edit.dart';
 import './pages/analisi_edit.dart';
 import './pages/analisi_view.dart';
 import './pages/documenti_view.dart';
+import './pages/impostazioni_page.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  initializeDateFormatting().then((_) => runApp(MyApp()));
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -54,6 +59,7 @@ class MyApp extends StatelessWidget {
         '/analisi/view': (context) => AnalisiView(),
         '/documenti/view': (context) => DocumentiView(),
         '/profilo/page': (context) => ProfiloPage(),
+        '/impostazioni/page': (context) => ImpostazioniPage()
       },
     );
   }

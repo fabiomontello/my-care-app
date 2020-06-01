@@ -14,7 +14,7 @@ class AnalisiView extends StatelessWidget {
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.white),
         title: Text(
-          'Informazioni medicinale',
+          'Informazioni analisi',
           style: TextStyle(
             color: Colors.white,
             fontSize: 20,
