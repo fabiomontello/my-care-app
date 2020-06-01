@@ -5,40 +5,9 @@ import '../ui/red_separator.dart';
 import 'package:intl/intl.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-List<Medicinale> medList = [
-  // Medicinale(
-  //     id: '1 every minute',
-  //     title: 'Buscopan',
-  //     icon: TipoMedicinale.compresse,
-  //     promemoria: true,
-  //     frequency: 3,
-  //     promemoriaList: [
-  //       TimeOfDay.fromDateTime(DateTime.now()),
-  //       TimeOfDay.fromDateTime(DateTime.now()),
-  //       TimeOfDay.fromDateTime(DateTime.now())
-  //     ],
-  //     startDate: DateTime.now(),
-  //     dOfWeek: [true, true, true, true, true, true, true],
-  //     applicazione: true,
-  //     applicazioneDose: 5,
-  //     applicazioneDurata: 10,
-  //     scorte: true,
-  //     scorteQuantita: 50,
-  //     scorteAlert: true,
-  //     note: ''),
-];
+List<Medicinale> medList = [];
 
-List<Appuntamenti> appuntamentiList = [
-  // Appuntamenti(
-  //     id: 'dentificaçion',
-  //     title: 'Visita Fricalo',
-  //     promemoria: true,
-  //     date: DateTime.now(),
-  //     repeatAppointment: Frequency.None,
-  //     promemoriaTime: -1,
-  //     tipo: TipoApp.rosso,
-  //     note: 'Portare analisi sangue, via Milano 12, UDINE'),
-];
+List<Appuntamenti> appuntamentiList = [];
 
 class HomeList extends StatefulWidget {
   final Function homeSwitcher;
@@ -83,7 +52,7 @@ class _HomeListState extends State<HomeList> {
         medList.removeWhere((item) => item.id == arguments['object'].id);
         medList.add(arguments['object']);
       }
-      if(arguments['delete'] != null){
+      if (arguments['delete'] != null) {
         medList.removeWhere((item) => item.id == arguments['delete']);
         appuntamentiList.removeWhere((item) => item.id == arguments['delete']);
       }
@@ -146,7 +115,7 @@ class _HomeListState extends State<HomeList> {
                 }).toList(),
                 medList.length == 0
                     ? Container(
-                        margin: EdgeInsets.only(bottom:15),
+                        margin: EdgeInsets.only(bottom: 15),
                         child: ListTile(
                           title: Text(
                             'Non hai ancora inserito nessun medicinale',
