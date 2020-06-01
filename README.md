@@ -14,7 +14,7 @@ The idea is to develop an application wants to deals the problems shown above an
 The main goal of "My Care" is to place itself between medical professionals and patients. This application must be a support to improve the management of the people’s health.
 “My Care” offers users the different services, some of them are the following:
 
-• they will be able to organize their appointments and visits with the doctors, using reminder notifications;
-• they will be able to enable an alarm to remind them of drug delivery;
-• they will be able to store pictures, audio recordings, texts, keeping track of their documents and analysis;
-• they will be able to find the closest pharmacy, using the geo-localization option.
+* they will be able to organize their appointments and visits with the doctors, using reminder notifications;
+* they will be able to enable an alarm to remind them of drug delivery;
+* they will be able to store pictures, audio recordings, texts, keeping track of their documents and analysis;
+* they will be able to find the closest pharmacy, using the geo-localization option.
